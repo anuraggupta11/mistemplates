@@ -4,11 +4,21 @@ handleClickDropDownItem();
 resetSearchBox();
 setTimeout(equalheights,500);
 readMoreReadLessByClass();
-
+ajaxifySearchInput();
 
 
 });
 
+
+function ajaxifySearchInput(){
+	$('.ajaxifySearchInput').keyup(function() {
+		$.get( "http://192.168.1.13:8080/istar/rest/group/skills/ass/3", function( data ) {
+			$('.dropdown-toggle').dropdown();
+			 
+			});
+		
+	});
+}
 
 /* start of setup dropdown component 
 search_dropdown is a class which is at input present in drop down div
@@ -135,7 +145,7 @@ function equalheights(){
 	$('.equal_heights').each(function(){
 		if($(this).height() > max_height){
 			max_height = $(this).height() ;
-			max_height =max_height+10;
+			max_height =max_height;
 		}
 		
 	});

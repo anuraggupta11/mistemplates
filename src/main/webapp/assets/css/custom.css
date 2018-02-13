@@ -6,9 +6,14 @@
 .white{
 	color: #ffffff !important;
 }
-
+.lightyellow-bg{
+	background-color:#f9f9f9;
+}
+.gray-text{
+	color:#585858;
+}
 .gray-bg{
-	background-color: #ffffff !important;
+	background-color: #ebebeb !important;
 }
 .white-bg{
 	background-color: #ffffff !important;
