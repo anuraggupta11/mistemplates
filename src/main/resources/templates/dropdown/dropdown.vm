@@ -1,0 +1,27 @@
+	<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button"
+					id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">Dropdown button</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<div class="dropdown-header">
+
+						<input class="form-control search_dropdown" type="text"
+							placeholder="Search">
+					</div>
+					<div class="dropdown-item">
+						<div class="option-texts ml-2 mr-2 p-2">
+							Action<i class="fas fa-check float-right white"></i>
+						</div>
+					</div>
+					<div class="dropdown-item">
+						<div class="option-texts ml-2 mr-2 p-2">
+							Another action<i class="fas fa-check float-right white"></i>
+						</div>
+					</div>
+					<div class="dropdown-item">
+						<div class="option-texts ml-2 mr-2 p-2">
+							Something else here <i class="fas fa-check float-right white"></i>
+						</div>
+					</div>
+				</div>
+			</div>
