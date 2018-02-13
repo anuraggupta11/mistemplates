@@ -1,27 +1,20 @@
-	<div class="dropdown">
+	<div class="dropdown viksitdropdown">
 				<button class="btn btn-secondary dropdown-toggle" type="button"
-					id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false">Dropdown button</button>
-				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" data-search_div=$search_div_name data-search_value=$attribute_name
+					aria-expanded="false">$dropdown_name</button>
+				<div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
 					<div class="dropdown-header">
 
 						<input class="form-control search_dropdown" type="text"
 							placeholder="Search">
 					</div>
+						#foreach($option in $optionsArray)
+					
 					<div class="dropdown-item">
-						<div class="option-texts ml-2 mr-2 p-2">
-							Action<i class="fas fa-check float-right white"></i>
+						<div class="option-texts ">$option<i class="fas fa-check float-right white"></i>
 						</div>
 					</div>
-					<div class="dropdown-item">
-						<div class="option-texts ml-2 mr-2 p-2">
-							Another action<i class="fas fa-check float-right white"></i>
-						</div>
-					</div>
-					<div class="dropdown-item">
-						<div class="option-texts ml-2 mr-2 p-2">
-							Something else here <i class="fas fa-check float-right white"></i>
-						</div>
-					</div>
+					#end
 				</div>
 			</div>
+			

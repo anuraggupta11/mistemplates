@@ -27,11 +27,9 @@ public class DropdownHtml {
 		ve.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
 		ve.init();
 		/* next, get the Template */
-		Template t = ve.getTemplate("template/dropdown/dropdown.vm");
+		Template t = ve.getTemplate("templates/dropdown/dropdown.vm");
 		JSONObject jsonObject = new JSONObject();
-		String responseData = "";
 		VelocityContext context = new VelocityContext();
-		context.put("data", new JSONObject(responseData));
 		/* now render the template into a StringWriter */
 		StringWriter writer = new StringWriter();
 		t.merge(context, writer);

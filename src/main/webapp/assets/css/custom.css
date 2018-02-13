@@ -19,3 +19,10 @@
 
 
 /* end of  css for dropdown  */
+
+
+.group-card-scroll {
+	overflow-x: hidden;
+		overflow-y: auto;
+	
+}

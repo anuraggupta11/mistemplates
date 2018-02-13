@@ -1,0 +1,62 @@
+
+
+			<div class="row pt-3 pb-3">
+				<div class="col-md-6"></div>
+				<div class="col-md-6">
+					<div class="row text-center">
+						<div class="col-md-4">$dropdown</div>
+						<div class="col-md-4">$dropdown1 </div>
+						<div class="col-md-4">
+							<button type="button" class="btn btn-danger">Create
+								group</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+
+<div class="row">
+	
+
+
+#foreach( $group_card in $data.get('data') )
+<div class="col-md-4">
+<div class="card group-card-shadow equal_heights mt-3 mb-2 rounded-0"  data-groupType=$group_card.get('group_type') data-groupName=$group_card.get('name')>
+   <div class="card-header bg-white">
+      <div class="row">
+         <div class="col-md-8">
+            <p class="font-weight-bold group-card-title-font font-16 mb-0">$group_card.get('name')</p>
+         </div>
+         <div class="col-md-4">
+            <span class="badge badge-warning font-weight-normal">
+            $group_card.get('group_type')
+            </span>
+         </div>
+      </div>
+   </div>
+   <div class="card-body group-card-scroll">
+      <div class="row mt-3">
+         <div class="col-3">
+            <small class="text-custom-muted  ml-3">Member</small>
+            <small class="font-weight-bold ml-3">$group_card.get('members')</small>
+         </div>
+         <div class="col-9">
+         </div>
+      </div>
+      <div class="row mt-3">
+         <div class="col-12">
+            <small class="text-custom-muted ml-3">Skills</small>
+         
+            <ul  class="group_skill_list text-muted m-0" style="list-style:none;">
+               #foreach($skills in $group_card.get('skills'))
+               <li class="item"> <i class="text-custom-muted fa fa-circle mr-3 fa-1x" style="font-size: 0.5rem!important;vertical-align:middle;" aria-hidden="true"></i><span class=" font-15">$skills</span> </li>
+               #end
+            </ul>
+           
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+#end
+</div>
