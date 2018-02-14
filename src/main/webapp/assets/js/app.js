@@ -4,47 +4,12 @@ handleClickDropDownItem();
 resetSearchBox();
 setTimeout(equalheights,500);
 readMoreReadLessByClass();
-ajaxifySearchInput();
-
-
 
 });
 
 
-function ajaxifySearchInput(){
-	$('.ajaxifySearchInput').keyup(function() {
-		$('#ajax_dropdown_hidden_btn').trigger('click')
-		$('.dropdown-toggle').dropdown()
-		var search_skill_val=$(this).val();
-		if(search_skill_val != undefined && search_skill_val !=''){
-			$.get( "http://192.168.1.13:8080/istar/rest/group/skills/"+search_skill_val+"/3", function( data ) {
-				$('#ajaxdropdownid').children('.dropdown-item').remove();
-				data.data.forEach(function(item){
-					if(item.name !== undefined && item.name !== ''){
-						$('#ajaxdropdownid').append("<div class='dropdown-item' value='"+item.name+"'>"+item.name+"</div>");	
-					}			    
-					else{
-						$('#ajaxdropdownid').append("<div class='dropdown-item text-danger'>"+item.message+"</div>");	
-					}
-					
-					 
-					ajaxifyClick();	
-				});
-				});
-			
-		}
-		
-		
-	});
-}
-function ajaxifyClick(){
-	$('.ajaxdropdown>.dropdown-item').unbind().click(function(e){
-		e.stopPropagation();
-		var item = $(this).text();
-		log(item);
-		$('#exampleSkill').append("	<button type='button'	class='btn btn-outline-secondary btn-sm white-bg gray-text p-2 ml-2 mt-2'> "+item+"<i class='fas fa-times ml-2'></i> </button>");	
-	})
-}
+
+
 
 /* start of setup dropdown component 
 search_dropdown is a class which is at input present in drop down div

@@ -5,3 +5,5 @@
 <link href="assets/css/jquery.rateyo.min.css" rel="stylesheet">
 
 <link href="assets/css/custom.css" rel="stylesheet">
+
+ <link href="assets/css/create_group.css" rel="stylesheet">

@@ -7,4 +7,4 @@
 <script src="assets/js/jquery.rateyo.min.js"></script>
 <script src="assets/js/app.js"></script>
 <script src="assets/js/caurosal.js"></script>
-
+    <script src="assets/js/create_group.js"></script>

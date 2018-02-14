@@ -1,0 +1,27 @@
+/* start of  css for dropdown  */
+
+.redcolor{
+	color: red  !important;
+}
+.white{
+	color: #ffffff !important;
+}
+.lightyellow-bg{
+	background-color:#f9f9f9;
+}
+.gray-text{
+	color:#585858;
+}
+.gray-bg{
+	background-color: #ebebeb !important;
+}
+.white-bg{
+	background-color: #ffffff !important;
+}
+
+.added-skills{
+	    height: 280px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+

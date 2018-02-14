@@ -1,5 +1,6 @@
 
 <!DOCTYPE html>
+<%@page import="component.group.CreateGroup"%>
 <%@page import="component.group.Group"%>
 <%@page import="dropdown.DropdownHtml"%>
 <html lang="en">
@@ -23,10 +24,14 @@
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 	<div class="jumbotron   mt-3">
 		<div class="container">
-			
+			<%= new CreateGroup().getGroupCreationPage() %>
 		</div>
+		 
 	</div>
 	<!-- /container -->
+
+	
+
 
 
 	<jsp:include page="inc/foot.jsp"></jsp:include>
