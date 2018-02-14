@@ -1,0 +1,75 @@
+#foreach( $card in $data.get('data') )
+
+<div class="card p-3 m-2 " style="width: 20rem;">
+							<button type="button" class="btn d-flex justify-content-center"
+								style="position: absolute; top: 0; right: 0; background-color: #35bdf0; border-bottom-left-radius: 86px; width: 30px; height: 30px;">
+								<i class="fas fa-video"
+									style="font-size: 12px; vertical-align: middle; margin-left: 6px; color: white;"></i>
+							</button>
+							<div class="row">
+								<div class="col-md-12 d-flex font-13">$card.get('start_date')</div>
+
+							</div>
+							<div class="row pt-2">
+								<div class="col-md-12 d-flex font-13">
+									<div class="mr-3 cyan-text">
+										<i class="fas fa-clock"></i> &nbsp;$card.get('scheduled_time')&nbsp;-&nbsp;$card.get('end_time')
+									</div>
+									<div class="cyan-text">
+										<i class="fas fa-hourglass"></i> &nbsp;
+										#if ($card.has('duration_in_minutes'))
+										$card.get('duration_in_minutes')min&nbsp;:&nbsp;$card.get('duration_in_second')s
+										#end
+									</div>
+								</div>
+							</div>
+							<div class="row pt-2">
+								<div class="col-12 font-weight-bold font-16">$card.get('name')</div>
+							</div>
+							<hr class=" mb-0 mt-1">
+							<div class="row text-center pt-2">
+								<div class="col-3 font-12 text-left">Talentify Score</div>
+								<div class="col-3 font-12">Self Rating</div>
+								<div class="col-3 font-12">Keyword Detection</div>
+								<div class="col-3 font-12">Sentiment Score</div>
+							</div>
+							<div class="row text-center pt-2">
+								<div class="col-3 text-left d-flex">
+								#if ($card.has('talentify_score'))
+									<div class="rating_star align-self-center" data-rating=$card.get('talentify_score')
+										data-star_width="14"></div>
+										#end
+								</div>
+								<div class="col-3 d-flex">
+								#if ($card.has('self_rating'))
+									<div class="rating_star align-self-center" data-rating=$card.get('self_rating')
+										data-star_width="14"></div>
+								#end		
+								</div>
+								<div class="col-3 font-14">
+								#if ($card.has('keyword_detection'))
+								$card.get('keyword_detection')%
+								#end
+								</div>
+								<div class="col-3 font-14">
+								
+								#if (!$card.has('sentiment_score'))
+ %
+ #else
+ $card.get('sentiment_score')
+#end
+								
+								</div>
+							</div>
+							<hr class=" mb-0 mt-2">
+							<div class="row pt-2">
+								<div class="col-12 font-11">
+									<i class="fab fa-font-awesome-flag theme-text"
+										style="font-size: 12px;"></i> &nbsp;Mild Interest
+								</div>
+							</div>
+							
+
+
+						</div>
+						#end

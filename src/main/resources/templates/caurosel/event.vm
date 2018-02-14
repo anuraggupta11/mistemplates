@@ -1,0 +1,54 @@
+#foreach( $card in $data.get('data') )
+
+<div class="card p-3 m-2 " style="width: 20rem;">
+							<button type="button" class="btn d-flex justify-content-center"
+								style="position: absolute; top: 0; right: 0; background-color: #35bdf0; border-bottom-left-radius: 86px; width: 30px; height: 30px;">
+								<i class="fas fa-video"
+									style="font-size: 12px; vertical-align: middle; margin-left: 6px; color: white;"></i>
+							</button>
+
+							<div class="row">
+								<div class="col-md-12 d-flex font-13">
+									<div class="mr-3 cyan-text">
+										<i class="fas fa-clock"></i> &nbsp;$card.get('scheduled_time')
+									</div>
+									<div class="cyan-text">
+										<i class="fas fa-hourglass"></i> &nbsp;$card.get('scheduled_duration')
+									</div>
+								</div>
+							</div>
+							<div class="row pt-2">
+								<div class="col-4 pr-0">
+									<img
+										src=$card.get('course_image')
+										class="custom_image_size_80" alt="Responsive image">
+
+								</div>
+								<div class="col-8 pl-0 pr-0 ">
+									<p class="text-left mb-1 font-12">$card.get('course_name')</p>
+									<p class="text-left mb-1 font-16 font-weight-bold">$card.get('lesson_name')</p>
+									<p class="text-left mb-1 font-12">$card.get('group_name')</p>
+
+								</div>
+							</div>
+							<hr class="mt-0 mb-0">
+							<div class="row text-center pt-2">
+								<div class="col-4 font-12 text-left">Attendance</div>
+								<div class="col-4 font-12 ">Student</div>
+								<div class="col-4 font-12">trainer</div>
+							</div>
+							<div class="row text-center pt-2">
+								<div class="col-4 text-left font-14 font-weight-bold">$card.get('attendance')%</div>
+								<div class="col-4 d-flex">
+									<div class="rating_star align-self-center" data-rating=$card.get('student_rating')
+										data-star_width="14"></div>
+								</div>
+								<div class="col-4 d-flex">
+									<div class="rating_star align-self-center" data-rating=$card.get('trainer_rating')
+										data-star_width="14"></div>
+								</div>
+							</div>
+
+
+						</div>
+						#end

@@ -1,30 +1,119 @@
 /* start of  css for dropdown  */
+@media (min-width: 1200px){
+.container{
+   width: 1172px !important;
+}
+}
+
+/* start of custom text color*/
+.gray-text{
+	color:#585858;
+}
+.cyan-text{
+	color: #2196f2 !important;
+}
+
+.white{
+	color: #ffffff !important;
+}
 
 .redcolor{
 	color: red  !important;
 }
-.white{
-	color: #ffffff !important;
+
+.theme-text{
+	color: #eb384f  !important;
 }
+/* end of custom text color*/
+
+
+
+
+/*start of custom background color*/
 .lightyellow-bg{
 	background-color:#f9f9f9;
 }
-.gray-text{
-	color:#585858;
-}
+
 .gray-bg{
 	background-color: #ebebeb !important;
 }
 .white-bg{
 	background-color: #ffffff !important;
 }
+.theme-bg{
+		background-color: #eb384f !important;
+	
+}
+/*end of custom background color*/
 
-/* overriding active styling of dropdown */
+/*start of custom font class*/
+.font-11{
+	font-size:0.6875rem!important;
+	font-family: avenir-light;
+}
+.font-12{
+	font-size:0.75em!important;
+	font-family: avenir-light;
+}
+
+.font-13{
+	font-size: 0.8125em !important;
+	font-family: avenir-light;
+	}
+
+.font-14{
+	font-size: 0.8125em !important;
+	font-family: avenir-light;
+	}
+	.font-15{
+	font-size: 0.8125em !important;
+	font-family: avenir-light;
+	}	
+	
+	.font-16{
+	font-size: 1em !important;
+	font-family: avenir-light;
+	}
+	
+	.font-17{
+	font-size: 1.0625em !important;
+	font-family: avenir-light;
+	}
+	
+	.font-18{
+	font-size: 1.125em !important;
+	font-family: avenir-light;
+	}
+	
+	.font-19{
+	font-size: 1.1875em !important;
+	font-family: avenir-light;
+	}
+	
+	.font-20{
+	font-size: 1.25em !important;
+	font-family: avenir-light;
+	}
+	
+	.font-21{
+	font-size: 1.3125em !important;
+	font-family: avenir-light;
+	}
+	.font-22{
+	font-size: 1.375em !important;
+	font-family: avenir-light;
+	}
 
 
+/*end of custom font class*/
 
-/* end of  css for dropdown  */
 
+/* start of custom image css*/
+.custom_image_size_80{
+	height:80px;
+	width:80px;
+}
+/*end of custom image css*/
 
 .group-card-scroll {
 	overflow-x: hidden;

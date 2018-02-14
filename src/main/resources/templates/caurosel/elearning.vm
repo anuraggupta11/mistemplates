@@ -1,0 +1,36 @@
+#foreach( $card in $data.get('data') )
+
+<div class="card p-3 m-2 " style="width: 20rem;">
+
+
+
+							<div class="row pt-2">
+								<div class="col-4 pr-0">
+									<img
+										src=$card.get('course_image')
+										class="custom_image_size_80" alt="Responsive image">
+
+								</div>
+								<div class="col-8 pl-0 pr-0 ">
+									<p class="text-left mb-1 font-12">$card.get('course_name')</p>
+									<p class="text-left mb-1 font-16 font-weight-bold">$card.get('name')</p>
+									<p class="text-left mb-1 font-12">$card.get('group_name')</p>
+
+								</div>
+							</div>
+							<hr class="mt-0 mb-0">
+							<div class="row text-center pt-2">
+								<div class="col-4 font-12 ">User</div>
+								<div class="col-4 font-12 ">Duration</div>
+								<div class="col-4 font-12">Performance</div>
+							</div>
+							<div class="row text-center pt-2">
+								<div class="col-4  font-14">$card.get('users')</div>
+								<div class="col-4 font-14">$card.get('duration')</div>
+								<div class="col-4 font-14">$card.get('performance')</div>
+							</div>
+
+
+						</div>
+						
+						#end
