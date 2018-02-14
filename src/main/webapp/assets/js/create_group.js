@@ -1,15 +1,10 @@
 $(document).ready(function(){
 	ajaxifySearchInput();
 	scanButtonClick();
-	skillSelectClick();
+	
 	
 });
-function skillSelectClick(){
-	$("#scanSkillModalBodyId").unbind().click(function(){
-		e.stopPropagation();
-		  alert("You clicked on li " + $(this).text());
-	});
-}
+
 function scanButtonClick(){
 	$('#scanSkillBtn').unbind().click(function(e){
 		e.stopPropagation();
@@ -30,13 +25,29 @@ function scanButtonClick(){
 			    success: function(res){
 			        $('#scanSkillModal').modal('show')
 			        res.data.forEach(function(item){
-			        	 $('#scanSkillModalBodyId').append("<button type='button'	class='btn btn-outline-secondary btn-sm gray-text p-2 ml-2 mt-2'> "+item.name+"<i class='fas fa-times ml-2'></i> </button>");
+			        	 $('#scanSkillModalBodyId').append("<button type='button'	class='btn btn-outline-secondary btn-sm gray-text p-2 ml-2 mt-2'> "+item.name+"</button>");
 			        });
+			        skillSelectClick();
 			    }
 			});			
 		}else{
 			$('#skillValdationId').show()	
 		}
+	});
+}
+
+function skillSelectClick(){
+	$("#scanSkillModalBodyId >.btn").unbind().click(function(){
+		var select_skill=$(this);
+		if(select_skill.hasClass('btn-outline-secondary')){
+			select_skill.removeClass('btn-outline-secondary').removeClass('gray-text').addClass('btn-outline-danger');
+			
+		}
+		else if(select_skill.hasClass('btn-outline-danger')){
+			select_skill.removeClass('btn-outline-danger').addClass('btn-outline-secondary').addClass('gray-text');
+		}
+		
+		 
 	});
 }
 
