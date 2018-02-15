@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataTables>
+    <DataTable id="1" offset="0" limit="10" searching="true" sorting="false" url="http://localhost:8080/mistemplates/GetDataTable">
+        <column name="address"/>
+        <column name="gender"/>
+        <column name="phone"/>
+        <column name="name"/>
+        <column name="id"/>
+        <column name="email"/>
+    </DataTable>
+    <DataTable id="2"  offset="0" limit="10" searching="false" sorting="true" url="http://localhost:8080/mistemplates/GetDataTable">
+        <column name="address"/>
+        <column name="gender"/>
+        <column name="phone"/>
+        <column name="name"/>
+        <column name="id"/>
+        <column name="email"/>
+    </DataTable>
+</dataTables>

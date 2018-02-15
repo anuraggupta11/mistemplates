@@ -1,0 +1,39 @@
+
+	#set($table_id = $datatable.id+"_datatable")
+<div id=$table_id >
+<div class="d-flex justify-content-end">
+   <div class="mr-auto p-2">
+      <select class="custom-select datatable_select">
+         <option selected value="10">10</option>
+         <option value="20">20</option>
+         <option value="30">30</option>
+         <option value="40">40</option>
+         <option value="50">50</option>
+      </select>
+   </div>
+   <div class="p-2">
+      <div class="form-group">     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Search ...">   </div>
+   </div>
+</div>
+<div class="datatable_container">
+   <table data-id=$datatable.id class='table table-bordered' data-url=$datatable.url  data-total_count=$count data-limit=$datatable.limit data-offset=$datatable.offset>
+      <thead>
+         <tr>
+            #foreach($column in $datatable.columns)
+            <th>$column.name</th>
+            #end
+         </tr>
+      </thead>
+      <tbody>
+         #foreach($temp in $response.get('data'))
+         <tr>
+            #foreach($tempcolumn in $datatable.columns)
+            <td>$temp.get($tempcolumn.name)</td>
+            #end
+         </tr>
+         #end
+      </tbody>
+   </table>
+   <div class="page-selection" data-total_count=$count></div>
+</div>
+</div>
