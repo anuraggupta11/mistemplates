@@ -25,7 +25,10 @@
 	<div class="jumbotron   mt-3">
 		<div class="container">
 			<%= new CreateGroup().getGroupCreationPage() %>
+			<div class="alert alert-danger alert-dismissible fade" role="alert"></div>
 		</div>
+		
+		
 		 
 	</div>
 	<!-- /container -->

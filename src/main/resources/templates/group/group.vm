@@ -4,9 +4,9 @@
 				<div class="col-md-6"></div>
 				<div class="col-md-6">
 					<div class="row text-center">
-						<div class="col-md-4">$dropdown</div>
-						<div class="col-md-4">$dropdown1 </div>
-						<div class="col-md-4">
+						<div class="col-md-4 mb-1">$dropdown</div>
+						<div class="col-md-4 mb-1">$dropdown1 </div>
+						<div class="col-md-4 mb-1">
 							<button type="button" class="btn btn-danger" onclick="location.href='http://localhost:8080/mistemplates/create_group.jsp'">Create
 								group</button>
 						</div>
