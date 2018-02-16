@@ -35,8 +35,9 @@ public class GetDataTable extends HttpServlet {
 		// TODO Auto-generated method stub
 		int limit =10;
 		int offset =0 ;
-		
-		
+		Integer showentries = null;
+		String searchterm = null;
+		String columnname="";
 		if(request.getParameter("limit") !=null) {
 			try {
 				limit= Integer.parseInt(request.getParameter("limit").toString());
@@ -51,7 +52,24 @@ public class GetDataTable extends HttpServlet {
 				
 			}
 		}
-		
+		if(request.getParameter("showentries") !=null) {
+			try {
+				showentries= Integer.parseInt(request.getParameter("showentries").toString());
+				 
+			}catch(Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+		if(request.getParameter("searchterm") !=null && !request.getParameter("searchterm").toString().equalsIgnoreCase("") ) {
+			try {
+				searchterm= request.getParameter("searchterm").toString();
+				 
+			}catch(Exception e) {
+				e.printStackTrace();
+
+			}
+		}
 		
 		Connection c = null;
 	      Statement stmt = null;
@@ -65,11 +83,32 @@ public class GetDataTable extends HttpServlet {
 	         c.setAutoCommit(false);
 
 	         stmt = c.createStatement();
-	         
-	         String sql="select row_to_json(t) from (   select     (select count(*) from public.test) as total_count,     (select json_agg(row_to_json(tt))        from ("
+	         String sql="";
+	       /*  String sql="select row_to_json(t) from (   select     (select count(*) from public.test) as total_count,     (select json_agg(row_to_json(tt))        from ("
 	         		+ "select * from public.test order by id limit "
 	         		+ limit+" offset "+offset
-	         		+ ") tt) as data ) t";
+	         		+ ") tt) as data ) t";*/
+	         
+	         if(searchterm != null && !searchterm.equalsIgnoreCase("")) {
+	        	 sql="SELECT 	row_to_json (T)   FROM 	( 		SELECT 			( 				SELECT 					COUNT (*) 				FROM 					PUBLIC .chotitable 			) AS total_count, 			( 				SELECT 					json_agg (row_to_json(tt)) 				FROM 					( 						SELECT 							* 						FROM 							PUBLIC .chotitable where lower(name) like '%"
+		        	 		+ searchterm
+		        	 		+ "%'  OR lower(email) like '%"
+		        	 		+ searchterm + "%' OR lower(gender) like '%"
+		        	 		+ searchterm + "%' OR lower(address) like '%"
+		        	 		+ searchterm + "%' 						ORDER BY 							ID 						LIMIT "
+		        	 		+ limit
+		        	 		+ " OFFSET "
+		        	 		+ offset
+		        	 		+ " 					) tt 			) AS DATA 	) T";
+	         }else {
+	        	 sql =" SELECT 	row_to_json (T) FROM 	( 		SELECT 			(SELECT	COUNT (*)FROM	PUBLIC .chotitable 			) AS total_count, 			(SELECT	json_agg (row_to_json(tt))FROM	(		SELECT			*		FROM			PUBLIC .chotitable		ORDER BY			ID		"
+	 	         		+ "LIMIT "
+	 	         		+ limit
+	 	         		+ " OFFSET "
+	 	         		+ offset
+	 	         		+ "	) tt 			) AS DATA 	) T";
+	        	
+	         }
 	         System.out.println("query "  + sql);
 	         ResultSet rs = stmt.executeQuery( sql );
 	          			
@@ -102,9 +141,10 @@ public class GetDataTable extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		
-		int limit =10;
-		int offset =0 ;
-		
+		Integer limit =10;
+		Integer offset =0 ;
+		Integer showentries = null;
+		String searchterm = null;
 		
 		if(request.getParameter("limit") !=null) {
 			try {
@@ -123,9 +163,29 @@ public class GetDataTable extends HttpServlet {
 
 			}
 		}
+		
+		if(request.getParameter("showentries") !=null) {
+			try {
+				showentries= Integer.parseInt(request.getParameter("showentries").toString());
+				 
+			}catch(Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+		if(request.getParameter("searchterm") !=null) {
+			try {
+				searchterm= request.getParameter("searchterm").toString();
+				 
+			}catch(Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+		
 		NewDatatableService datatableService = new NewDatatableService();
 
-		response.getWriter().println(datatableService.getDataTable(1,limit,offset));
+		response.getWriter().println(datatableService.getDataTable(1,limit,offset,showentries,searchterm));
 		
 		//doGet(request, response);
 	}

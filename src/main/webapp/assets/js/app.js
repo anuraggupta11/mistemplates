@@ -3,6 +3,7 @@ $( document ).ready(function() {
  
 resetSearchBox();
 setTimeout(equalheights,500);
+<<<<<<< HEAD
 
 page_Selection(undefined,undefined);
 
@@ -87,6 +88,9 @@ function handlePaginatedDatable(current,mybootpag,num){
 }
 
 
+=======
+readMoreReadLessByClass();
+>>>>>>> branch 'master' of https://github.com/anuraggupta11/mistemplates.git
 });
 
 
@@ -96,7 +100,39 @@ function handlePaginatedDatable(current,mybootpag,num){
 /* start of setup dropdown component 
 search_dropdown is a class which is at input present in drop down div
  */
+<<<<<<< HEAD
  
+=======
+function setupDropDown(){
+	$('.search_dropdown').unbind().keyup(function() {
+		var search_term = $(this).val(); 
+		//alert(search_term);
+		iterate_drop_down($(this),search_term);
+		});
+}
+
+
+function iterate_drop_down(search_elem,search_term ){
+	$(search_elem).parent().siblings('.dropdown-item').each(function (){
+		
+		if(search_term !== "" ){
+			
+		var options = $(this).find('.option-texts').text();
+		if(options.trim().toLowerCase().indexOf(search_term.trim().toLowerCase()) > -1){
+			log('matched '+options);
+			
+			$(this).show();
+		}else{
+			$(this).hide();
+		}
+		}else{
+			$(this).show();
+		}
+	});
+	
+}
+
+>>>>>>> branch 'master' of https://github.com/anuraggupta11/mistemplates.git
 
 function resetSearchBox(){
 	$('.viksitdropdown').unbind().on('show.bs.dropdown', function () {

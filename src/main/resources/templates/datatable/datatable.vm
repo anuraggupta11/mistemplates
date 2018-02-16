@@ -1,6 +1,26 @@
-
-	#set($table_id = $datatable.id+"_datatable")
+#set($table_id = $datatable.id+"_datatable")
 <div id=$table_id >
+
+<div class="d-flex justify-content-end">
+   #foreach($column in $datatable.columns)
+   #if($column.dropDownFilter)
+   #set($placeholder= "Search by "+$column.name)
+   <div class="p-2">
+      <div class="form-group">     
+      <select class="custom-select datatablecolumnsearch" data-column=$column.name>
+         <option selected value="10">10</option>
+         <option value="20">20</option>
+         <option value="30">30</option>
+         <option value="40">40</option>
+         <option value="50">50</option>
+      </select>
+      </div>
+   </div>
+   #end
+  #end
+</div>
+
+
 <div class="d-flex justify-content-end">
    <div class="mr-auto p-2">
       <select class="custom-select datatable_select">
@@ -12,15 +32,17 @@
       </select>
    </div>
    <div class="p-2">
-      <div class="form-group">     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Search ...">   </div>
+      <div class="form-group">     <input type="text" class="form-control datatablesearch" id="exampleFormControlInput1" placeholder="Search ...">   </div>
    </div>
 </div>
-<div class="datatable_container">
-   <table data-id=$datatable.id class='table table-bordered' data-url=$datatable.url  data-total_count=$count data-limit=$datatable.limit data-offset=$datatable.offset>
+<div class="datatable_container" id=$datatable.id >
+   <table data-id=$datatable.id data-sorting=$datatable.sorting data-page="1" class='table table-bordered' data-url=$datatable.url
+   data-total_count=$count data-limit=$datatable.limit data-offset=$datatable.offset data-showentries=$datatable.showentries 
+   data-searchterm=$datatable.searchterm     >
       <thead>
          <tr>
             #foreach($column in $datatable.columns)
-            <th>$column.name</th>
+            <th data-val=$column.name>$column.name</th>
             #end
          </tr>
       </thead>

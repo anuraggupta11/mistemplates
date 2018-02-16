@@ -15,7 +15,8 @@ public class DataTable {
 	private ArrayList<Column> columns = new ArrayList<>();
 	private Integer limit =10;
 	private Integer offset =0;
-
+	private Integer showentries;
+	private String searchterm;
 	private boolean sorting;
 	private boolean searching;
 	
@@ -96,13 +97,34 @@ public class DataTable {
 		this.searching = searching;
 	}
 
+	
+	@XmlAttribute(name = "offset")
 	public Integer getOffset() {
 		return offset;
 	}
 
-	@XmlAttribute(name = "offset")
 	public void setOffset(Integer offset) {
 		this.offset = offset;
+	}
+
+	
+	@XmlAttribute(name = "showentries")
+	public Integer getShowentries() {
+		return showentries;
+	}
+
+	public void setShowentries(Integer showentries) {
+		this.showentries = showentries;
+	}
+
+	
+	@XmlAttribute(name = "searchterm")
+	public String getSearchterm() {
+		return searchterm;
+	}
+
+	public void setSearchterm(String searchterm) {
+		this.searchterm = searchterm;
 	}
 	
 	

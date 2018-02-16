@@ -51,9 +51,9 @@ public class FillDataTable {
 				e2.printStackTrace();
 			}
 
-			for(int i=0;i<1000000;i++) {
+			for(int i=0;i<100;i++) {
 			System.out.println("You made it, take control your database now!");
-			String sql="insert into  test(name ,email ,phone,address ,gender) "
+/*			String sql="insert into  test(name ,email ,phone,address ,gender) "
 					+ "VALUES ('"
 					+ faker.name().fullName()
 					+ "', '"
@@ -65,6 +65,18 @@ public class FillDataTable {
 					+ "', '"
 					+ faker.lorem().characters()
 					+ " ')";
+*/			
+			
+			String sql = "insert into chotitable(name,age, email, gender,address) values('"
+					+faker.name().fullName()+ "'"
+					+ ","
+					+ faker.number().numberBetween(18, 60)
+					+ ",'"
+					+ faker.team().state()+ "','"
+						+faker.harryPotter().book()	+ "','" +
+							faker.address().fullAddress()	+ "')";;
+			
+			
 			System.out.println("sql ---> "+sql);
 			try {
 		         stmt.executeUpdate(sql);

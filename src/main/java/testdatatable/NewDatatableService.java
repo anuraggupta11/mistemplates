@@ -26,7 +26,7 @@ public class NewDatatableService {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getDataTable(Integer id,Integer limit, Integer offset) throws IOException {
+	public String getDataTable(Integer id,Integer limit, Integer offset, Integer showentries,String searchterm) throws IOException {
 		
 		ClassLoader classLoader =TestDatatableService.class.getClassLoader();
 		 File file = new File(classLoader.getResource("datatable/table.xml").getFile());
@@ -40,7 +40,7 @@ public class NewDatatableService {
 	        	if(dataTable.getId() == id) {
 	        		
 	        		
-	        		return getDataTableHtml(dataTable,limit,offset);
+	        		return getDataTableHtml(dataTable,limit,offset,showentries,searchterm);
 	        	}
 	        }
 			} catch (JAXBException e) {
@@ -55,7 +55,7 @@ public class NewDatatableService {
 	}
 	
 	
-	private String getDataTableHtml(DataTable dataTable,Integer limit, Integer offset) {
+	private String getDataTableHtml(DataTable dataTable,Integer limit, Integer offset,Integer showentries,String searchterm) {
 		  VelocityEngine ve = new VelocityEngine();
 	        ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
 	        ve.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
@@ -72,7 +72,16 @@ public class NewDatatableService {
     			dataTable.setLimit(limit);
     			if(offset != null) {
         			dataTable.setOffset(offset);
-    				response = httpUtils.makeHttpCall(dataTable.getUrl()+"?limit="+limit+"&offset="+offset, "GET");
+        			if(limit != null && offset != null ) {
+        				if(showentries != null ) {
+                			dataTable.setShowentries(showentries);
+                			if(searchterm != null)
+                				dataTable.setSearchterm(searchterm);
+            				response = httpUtils.makeHttpCall(dataTable.getUrl()+"?limit="+limit+"&offset="+offset+"&showentries="+showentries+"&searchterm="+searchterm, "GET");
+        				}else {
+        				response = httpUtils.makeHttpCall(dataTable.getUrl()+"?limit="+limit+"&offset="+offset, "GET");
+        				}
+        			}
 
         		}
     		}else {
@@ -85,6 +94,7 @@ public class NewDatatableService {
 				
 				Integer total_count= jsonObject.getInt("total_count");
 		        context.put("count",total_count);
+		        context.put("responseSelect",jsonObject);
 		        context.put("response",jsonObject);
 
 			} catch (IOException e) {
