@@ -64,7 +64,7 @@ public class Group {
 	        for (int i = 0;i < jsonArray.length(); i++) {
 	        	System.out.println(jsonArray.getJSONObject(i).get("name"));
 	        	if(name.equalsIgnoreCase("Group Name"))
-	        	groupName.add(jsonArray.getJSONObject(i).get("name").toString().replaceAll("BOI Demo Course", "BOI"));
+	        	groupName.add(jsonArray.getJSONObject(i).get("name").toString());
 	        	else
 		        	groupName.add(jsonArray.getJSONObject(i).get("group_type").toString());
 	

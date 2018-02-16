@@ -1,0 +1,74 @@
+<div class="d-flex flex-row mt-2">
+  <div class="p-2 back-group-img"><img  src="assets/images/group_back_arrow.png"></div>
+  <div class="p-2 group-list-title-font">	$data.get('data').get('name')</div>
+  <div class="p-2 vertical-align-middle align-self-center"><h6><span class="badge badge-warning font-weight-normal">$data.get('data').get('group_type')</span></h6></div>
+</div>
+
+<div class="card group-user-shadow w-100">
+  <div class="card-block">
+    <div class="row">
+    	<div class="col-md-3">
+    		<div class="text-custom-muted w-100">Members</div>
+    		<div class="w-100">$data.get('data').get('members')</div>
+    		<div class="w-100 text-custom-muted">Created On</div>
+    		<div class="w-100">$data.get('data').get('created_on')</div>
+    	</div>
+    	<div class="col-md-7">
+    		<div class=" text-custom-muted w-100">
+    		Skills
+    		</div>
+    		<div class="w-100">  		
+    		 <ul  class="p-0 mt-2" style="list-style:none;">
+    		 #foreach($skill in $data.get('data').get('skills'))
+               <li class="item d-inline-block"> <i class="text-custom-muted mr-1 fa fa-circle fa-1x" style="font-size: 0.5rem!important;" aria-hidden="true"></i><span class=" font-15 mr-2">$skill</span> </li>
+             #end
+            </ul>
+           
+    		</div>
+    	</div>  
+    	<div class="col-md-2">
+    	<i class="fas fa-ellipsis-v float-right  dropdown text-custom-muted " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false"  style="cursor: pointer;"></i>
+		  <div class="dropdown-menu group-detail-elipsis-dropdown group-user-shadow" aria-labelledby="dropdownMenuButton">
+		    <a class="dropdown-item" href="#">Edit</a>
+		     <div class="dropdown-divider"></div>
+		    <a class="dropdown-item" href="#">Delete</a>
+		  </div>
+    	</div>  	 
+     </div>
+  </div>
+</div>
+
+ 
+<div class="d-flex justify-content-end mt-3">
+  <div class="mr-auto p-2">Flex item</div>
+  <div class="p-2"><button type="button" class="btn btn-danger"  id="addUserBtnId"  data-toggle="modal" data-target="#addUserModal"><i class="fa fa-plus mr-1" style="font-size: 12px !important; aria-hidden='true'"></i>Add User</button></div>
+  <div class="p-2"><button type="button" class="btn btn-danger">Bulk Upload</button></div>
+  
+  
+  
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addUserModalLabel">ADD NEW USER</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+

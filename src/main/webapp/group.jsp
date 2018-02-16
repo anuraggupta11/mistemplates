@@ -1,6 +1,5 @@
 
 <!DOCTYPE html>
-<%@page import="component.group.GroupUserList"%>
 <%@page import="component.group.Group"%>
 <%@page import="dropdown.DropdownHtml"%>
 <html lang="en">
@@ -22,18 +21,15 @@
 	<jsp:include page="inc/navbar.jsp"></jsp:include>
 
 	<!-- Main jumbotron for a primary marketing message or call to action -->
-	<div class="jumbotron white-bg mt-3">
-		<div class="container">
-		<%
-		Integer id=null;
-		if(request.getParameter("id") != null){
-			id=Integer.parseInt(request.getParameter("id") );
-		}%>
-			<%=new GroupUserList().getGroupDetailsData(id) %>
+	<div class="jumbotron white-bg">
+		<div class="container"><%= new Group().getGroupCards() %>
+
+			
+			
 		</div>
 	</div>
 
-
+	
 	<!-- /container -->
 
 

@@ -1,7 +1,9 @@
 
 
 			<div class="row pt-3 pb-3">
-				<div class="col-md-6"></div>
+				<div class="col-md-6">
+				<h2 class="font-weight-normal mb-1">Groups</h2>
+				</div>
 				<div class="col-md-6">
 					<div class="row text-center">
 						<div class="col-md-4 mb-1">$dropdown</div>
@@ -21,8 +23,8 @@
 
 #foreach( $group_card in $data.get('data') )
 <div class="col-md-4">
-<div class="card group-card-shadow equal_heights mt-3 mb-2 rounded-0"  data-groupType=$group_card.get('group_type') data-groupName=$group_card.get('name')>
-   <div class="card-header bg-white">
+<div class="card group-card-shadow group-card-cursor equal_heights mt-3 mb-2 rounded-0"  data-groupType="$group_card.get('group_type')" data-groupName="$group_card.get('name')" data-groupid="$group_card.get('id')">
+   <div class="card-header white-bg">
       <div class="row">
          <div class="col-md-8">
             <p class="font-weight-bold group-card-title-font font-16 mb-0">$group_card.get('name')</p>
