@@ -7,3 +7,4 @@
 <link href="assets/css/custom.css" rel="stylesheet">
 
  <link href="assets/css/create_group.css" rel="stylesheet">
+ <link href="assets/css/fontawesome-all.css" rel="stylesheet">
