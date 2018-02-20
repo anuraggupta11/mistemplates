@@ -1,0 +1,38 @@
+#foreach( $course_card in $data.get('data') )
+<div class="row mb-4">
+		<div class="card w-100">
+ 			 <div class="card-block">
+ 			 	<div class="row">
+ 			 		<div class="col-md-2">
+ 			 			<img class="img-thumbnail  border-0" alt="No image" src="http://business.talentify.in:9999//course_images/5.png" >
+ 			 		</div>
+ 			 		<div class="col-md-6">
+ 			 		 	<h4>$course_card.get('course')</h4>
+ 			 		 	 <div class="rate-yo-roles-report"></div>
+ 			 		 	 <div class="row">
+ 			 		 	 	<div class="col-3">	
+ 			 		 	 		<img class="img-thumbnail  border-0" alt="No image" src="assets/img/icons-8-groups.png" srcset="assets/img/icons-8-groups@3x.png 3x, assets/img/icons-8-groups@2x.png 2x" >
+ 			 		 	 		<h5>5 Groups</h5>
+ 			 		 	 	</div>
+ 			 		 	 	<div class="col-3">
+ 			 		 	 		<img class="img-thumbnail  border-0" alt="No image" src="assets/img/icons-8-student.png" srcset="assets/img/icons-8-student@3x.png 3x,assets/img/icons-8-student@2x.png 2x" >
+ 			 		 	 		<h5>200 Students</h5>
+ 			 		 	 	</div>
+ 			 		 	 	<div class="col-3">
+ 			 		 	 		<img class="img-thumbnail  border-0" alt="No image" src="assets/img/icons-8-report-card.png" srcset="assets/img/icons-8-report-card@3x.png 3x, assets/img/icons-8-report-card@2x.png 2x" >
+ 			 		 	 		<h5>82% Attendance</h5>
+ 			 		 	 	</div>
+ 			 		 	 	<div class="col-3">
+ 			 		 	 		<img class="img-thumbnail  border-0" alt="No image" src="assets/img/icons-8-discount.png" srcset="assets/img/icons-8-discount@3x.png 3x, assets/img/icons-8-discount@2x.png 2x" >
+ 			 		 	 		<h5>82% Performance</h5>
+ 			 		 	 	</div>
+ 			 		 	 </div>
+ 			 		</div>
+ 			 		<div class="col-md-4">
+ 			 		</div>
+   				 </div>
+   				 <hr>
+ 			 </div>
+		</div>
+</div>
+#end

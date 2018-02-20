@@ -30,7 +30,7 @@
     color: rgba(153, 153, 153, 0.6);
 }
 .group-user-list-gray-bg-color{
-	background-color: #f3f3f4;
+	background-color: #f7f7f7;
 }
 
 
@@ -56,3 +56,27 @@
 .viksit-multiselect-dropdown ::-webkit-scrollbar-thumb {
     background: #eee
 }
+
+/*Start Of Bulk Upload css*/
+.bulk-upload-label-color{
+	color:#c1c1c1;
+}
+.bulk-upload-alert-color{
+	background-color:  #f6a5b0 !important;
+    border-color: #ebcccc;
+    color: #a94442;
+}
+
+.close_modal_cross{
+	position: absolute;
+    top: 3%;
+    right: 3%;
+}
+/*End Of Bulk Upload css*/
+
+/*start of dropdown css*/
+.viksit-multiselect-dropdown>.dropdown-toggle::after {
+    float: right;
+    margin-top: 3%;
+    color:#d9534f;
+/*end of dropdown css*/

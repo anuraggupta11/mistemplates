@@ -5,6 +5,12 @@
 }
 }
 
+@media (min-width: 992px){
+.my-lg-modal{
+   width: 75%;
+}
+}
+
 /* start of custom text color*/
 .gray-text{
 	color:#585858;
@@ -126,3 +132,5 @@
 .d-table{
 	    display: table;
 }
+
+
