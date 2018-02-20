@@ -24,7 +24,7 @@
     overflow-y: auto;
     overflow-x: hidden;
 }
-.alert{
+.create-group-alert{
 	position:absolute;
  top: -4%;
     left: 50%;

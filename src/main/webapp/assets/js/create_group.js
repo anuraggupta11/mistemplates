@@ -28,7 +28,7 @@ function scanButtonClick(){
 			    	
 			    	if( res.data[0].message !=undefined &&  res.data[0].message !='' &&  res.data[0].message != null ){
 		        		//alert("message "+ item.message);
-		        		 $(".alert").addClass("show").fadeIn(500 , function() {
+		        		 $(".alert").addClass("create-group-alert").addClass("show").fadeIn(500 , function() {
 		        				$('.alert').children().remove();
 		        				 $(".alert").append(" <span class='alert-message-custom'>"+res.data[0].message+"</span>");
 		        				 setTimeout(function(){ 
@@ -161,7 +161,7 @@ function ajaxifyClick(){
 			listSkills.each(function() {
 				if($(this).data('skilltype') == 'COURSE' && course_id == $(this).data('courseid')){
 					//alert("already exist course");
-					 $(".alert").addClass("show").fadeIn(500 , function() {
+					 $(".alert").addClass("create-group-alert").addClass("show").fadeIn(500 , function() {
 	        				$('.alert').children().remove();
 	        				 $(".alert").append(" <span class='alert-message-custom'>already selected course</span>");
 	        				 setTimeout(function(){ 
@@ -172,7 +172,7 @@ function ajaxifyClick(){
 					return false;
 				}else if($(this).data('skilltype') == 'SKILL' && item == $(this).text().trim()){
 					//alert("already exist skill");
-					 $(".alert").addClass("show").fadeIn(500 , function() {
+					 $(".alert").addClass("create-group-alert").addClass("show").fadeIn(500 , function() {
 	        				$('.alert').children().remove();
 	        				 $(".alert").append(" <span class='alert-message-custom'>already selected skill</span>");
 	        				 setTimeout(function(){ 
@@ -260,7 +260,7 @@ function createGroupSubmit(){
 			    success: function(res){
 			       //alert("sucess");	
 			    	
-			    	 $(".alert").addClass("show").fadeIn(500 , function() {
+			    	 $(".alert").addClass("create-group-alert").addClass("show").fadeIn(500 , function() {
 	        				$('.alert').children().remove();
 	        				 $(".alert").append(" <span class='alert-message-custom'>"+res.message+"</span>");
 	        				 setTimeout(function(){ 

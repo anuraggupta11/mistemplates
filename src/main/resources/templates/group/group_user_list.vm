@@ -1,139 +1,179 @@
 <div class="d-flex flex-row mt-2">
-  <div class="p-2 back-group-img"><img  src="assets/images/group_back_arrow.png"></div>
-  <div class="p-2 group-list-title-font">	$data.get('data').get('name')</div>
-  <div class="p-2 vertical-align-middle align-self-center"><h6><span class="badge badge-warning font-weight-normal">$data.get('data').get('group_type')</span></h6></div>
+   <div class="p-2 back-group-img"><img  src="assets/images/group_back_arrow.png"></div>
+   <div class="p-2 group-list-title-font">	$data.get('data').get('name')</div>
+   <div class="p-2 vertical-align-middle align-self-center">
+      <h6><span class="badge badge-warning font-weight-normal">$data.get('data').get('group_type')</span></h6>
+   </div>
 </div>
-
 <div class="card group-user-shadow w-100">
-  <div class="card-block">
-    <div class="row">
-    	<div class="col-md-3">
-    		<div class="text-custom-muted w-100">Members</div>
-    		<div class="w-100">$data.get('data').get('members')</div>
-    		<div class="w-100 text-custom-muted">Created On</div>
-    		<div class="w-100">$data.get('data').get('created_on')</div>
-    	</div>
-    	<div class="col-md-7">
-    		<div class=" text-custom-muted w-100">
-    		Skills
-    		</div>
-    		<div class="w-100">  		
-    		 <ul  class="p-0 mt-2" style="list-style:none;">
-    		 #foreach($skill in $data.get('data').get('skills'))
-               <li class="item d-inline-block"> <i class="text-custom-muted mr-1 fa fa-circle fa-1x" style="font-size: 0.5rem!important;" aria-hidden="true"></i><span class=" font-15 mr-2">$skill</span> </li>
-             #end
-            </ul>
-           
-    		</div>
-    	</div>  
-    	<div class="col-md-2">
-    	<i class="fas fa-ellipsis-v float-right  dropdown text-custom-muted " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false"  style="cursor: pointer;"></i>
-		  <div class="dropdown-menu group-detail-elipsis-dropdown group-user-shadow" aria-labelledby="dropdownMenuButton">
-		    <a class="dropdown-item" href="#">Edit</a>
-		     <div class="dropdown-divider"></div>
-		    <a class="dropdown-item" href="#">Delete</a>
-		  </div>
-    	</div>  	 
-     </div>
-  </div>
-</div>
-
- 
-<div class="d-flex justify-content-end mt-3">
-  <div class="p-2"><button type="button" class="btn btn-danger"  id="addUserBtnId"  data-target="#addUserModal"   data-toggle="modal" ><i class="fa fa-plus mr-1" style="font-size: 12px !important; aria-hidden='true'"></i>Add User</button></div>
-  <div class="p-2"><button type="button" class="btn btn-danger">Bulk Upload</button></div>
-  
-  
-  
-</div>
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content w-75 ml-auto mr-auto">
-      <div class="modal-header justify-content-center">
-      	<div class="col-md-4">
-      	</div>
-      	<div class="col-md-5">
-      	 <h5 class="modal-title sky-blue-color" id="addUserModalLabel">ADD NEW USER</h5>
-      	</div>
-      	<div class="col-md-3">
-      	  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      	</div>
+   <div class="card-block">
+      <div class="row">
+         <div class="col-md-3">
+            <div class="text-custom-muted w-100">Members</div>
+            <div class="w-100">$data.get('data').get('members')</div>
+            <div class="w-100 text-custom-muted">Created On</div>
+            <div class="w-100">$data.get('data').get('created_on')</div>
+         </div>
+         <div class="col-md-7">
+            <div class=" text-custom-muted w-100">
+               Skills
+            </div>
+            <div class="w-100">
+               <ul  class="p-0 mt-2" style="list-style:none;">
+                  #foreach($skill in $data.get('data').get('skills'))
+                  <li class="item d-inline-block"> <i class="text-custom-muted mr-1 fa fa-circle fa-1x" style="font-size: 0.5rem!important;" aria-hidden="true"></i><span class=" font-15 mr-2">$skill</span> </li>
+                  #end
+               </ul>
+            </div>
+         </div>
+         <div class="col-md-2">
+            <i class="fas fa-ellipsis-v float-right  dropdown text-custom-muted " id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false"  style="cursor: pointer;"></i>
+            <div class="dropdown-menu group-detail-elipsis-dropdown group-user-shadow" aria-labelledby="dropdownMenuButton">
+               <a class="dropdown-item" href="#">Edit</a>
+               <div class="dropdown-divider"></div>
+               <a class="dropdown-item" href="#">Delete</a>
+            </div>
+         </div>
       </div>
-      
-      <div class="modal-body">
-		  <form id="addUserFormId">	
-			 	  <div class="row">
-						    <div class="form-group col-md-6">
-						      <label class="custom-label-add-user " for="fullName">Name</label>
-						      <input type="text" class="form-control" id="fullName" placeholder="Enter Your Name" required>
-						    </div>
-						    <div class="form-group  col-md-6">
-						      <label class="custom-label-add-users"  for="emailId">Email</label>
-						      <input type="email" class="form-control" id="emailId" placeholder="Enter Email Id" required>
-						      <div class="form-control-feedback" id="emailMessageId"></div>
-						    </div>
-						  </div>
-						    <div class="row">
-						      <div class="form-group col-md-6">
-						    <label class="custom-label-add-user"  for="phoneNo">Phone Number</label>
-						    <input type="number"     class="form-control" id="phoneNo" placeholder="Enter 10 Digit Number" required>
-						      <div class="form-control-feedback" id="phonenoMessageId"></div>
-						  </div>
-						  
-						   <div class="form-group col-md-6">
-						    <label class="custom-label-add-user"  for="pinCode">Pin Code</label>
-						    <input type="number" class="form-control" id="pinCode" placeholder="Enter 6 Digit Pincode" required>
-						      <div class="form-control-feedback" id="pincodeMessageId"></div>
-						  </div>
-						    </div>
-						     <div class="row">
-						      <div class="form-group col-md-6">
-						    <label class="custom-label-add-user"  for="inputAddress1">Address Line 1</label>
-						    <input type="text" class="form-control" id="inputAddress1" placeholder="Enter Address Line 1">
-						  </div>
-						  
-						    <div class="form-group col-md-6">
-						    <label class="custom-label-add-user"  for="inputAddress2">Address Line 2</label>
-						    <input type="text" class="form-control" id="inputAddress2" placeholder="Enter Address Line 2">
-						  </div>
-						     </div>
-						     
-						     <div class="row">
-						     <div class="col-md-6">
-						       <label class="custom-label-add-user"  for="jobRole">Job Role</label>
-						     <div  id="jobRole" >$jobRole</div>
-						     </div>
-						      <div class="col-md-6">
-						       <label class="custom-label-add-user"  for="unit">Product/Business Unit/Department</label>
-								<div id="unit">$unit </div>
-							  </div>
-						     </div>
-						     
-						      <div class="row">
-						      <div class="col-md-6">
-						      	   <label class="custom-label-add-user"  for="license">Assign	License</label>
-						    	   <div id="license">$license</div>
-						      </div>
-						    
-								<div class="col-md-6">
-									 <label class="custom-label-add-user"  for="groups">Assign	Group</label>
-						    	   <div id="groups">$groups</div>
-								</div>
-						     </div>		
-						     <button type="submit" class="btn btn-danger float-right mt-4">Add User</button>		
-						     </form>
-    			  </div>
-       
-        
-      	
-    </div>
-  </div>
+   </div>
 </div>
- 
-
+<div class="d-flex justify-content-end mt-3">
+   <div class="p-2"><button type="button" class="btn btn-danger"  id="addUserBtnId"  data-target="#addUserModal"   data-toggle="modal" ><i class="fa fa-plus mr-1" style="font-size: 12px !important; aria-hidden='true'"></i>Add User</button></div>
+   <div class="p-2"><button type="button" class="btn btn-danger" id="addBulkUpload" data-target="#addBulkUploadModal" data-toggle="modal" >Bulk Upload</button></div>
+</div>
+<!-- Modal For Add User-->
+<div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content w-75 ml-auto mr-auto">
+         <div class="modal-header justify-content-center">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-5">
+               <h5 class="modal-title sky-blue-color" id="addUserModalLabel">ADD NEW USER</h5>
+            </div>
+            <div class="col-md-3">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+         </div>
+         <div class="modal-body">
+            <form id="addUserFormId">
+               <div class="row">
+                  <div class="form-group col-md-6">
+                     <label class="custom-label-add-user " for="fullName">Name</label>
+                     <input type="text" class="form-control" id="fullName" placeholder="Enter Your Name" required>
+                  </div>
+                  <div class="form-group  col-md-6">
+                     <label class="custom-label-add-users"  for="emailId">Email</label>
+                     <input type="email" class="form-control" id="emailId" placeholder="Enter Email Id" required>
+                     <div class="form-control-feedback" id="emailMessageId"></div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="form-group col-md-6">
+                     <label class="custom-label-add-user"  for="phoneNo">Phone Number</label>
+                     <input type="number"     class="form-control" id="phoneNo" placeholder="Enter 10 Digit Number" required>
+                     <div class="form-control-feedback" id="phonenoMessageId"></div>
+                  </div>
+                  <div class="form-group col-md-6">
+                     <label class="custom-label-add-user"  for="pinCode">Pin Code</label>
+                     <input type="number" class="form-control" id="pinCode" placeholder="Enter 6 Digit Pincode" required>
+                     <div class="form-control-feedback" id="pincodeMessageId"></div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="form-group col-md-6">
+                     <label class="custom-label-add-user"  for="inputAddress1">Address Line 1</label>
+                     <input type="text" class="form-control" id="inputAddress1" placeholder="Enter Address Line 1">
+                  </div>
+                  <div class="form-group col-md-6">
+                     <label class="custom-label-add-user"  for="inputAddress2">Address Line 2</label>
+                     <input type="text" class="form-control" id="inputAddress2" placeholder="Enter Address Line 2">
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6">
+                     <label class="custom-label-add-user"  for="jobRole">Job Role</label>
+                     <div  id="jobRole" >$jobRole</div>
+                  </div>
+                  <div class="col-md-6">
+                     <label class="custom-label-add-user"  for="unit">Product/Business Unit/Department</label>
+                     <div id="unit">$unit </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6">
+                     <label class="custom-label-add-user"  for="license">Assign	License</label>
+                     <div id="license">$license</div>
+                  </div>
+                  <div class="col-md-6">
+                     <label class="custom-label-add-user"  for="groups">Assign	Group</label>
+                     <div id="groups">$groups</div>
+                  </div>
+               </div>
+               <button type="submit" class="btn btn-danger float-right mt-4">Add User</button>		
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- Modal For Bulk Upload-->
+<div class="modal fade" id="addBulkUploadModal" tabindex="-1" role="dialog" aria-labelledby="addBulkUploadModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content w-75 ml-auto mr-auto">
+         <div class="modal-header justify-content-center">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-5">
+               <h5 class="modal-title sky-blue-color" id="addUserModalLabel">BULK UPLOAD</h5>
+            </div>
+            <div class="col-md-3">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+         </div>
+         <div class="modal-body">
+            <div class="d-flex flex-column">
+               <div class="pr-2 pl-2">
+                  <div class="alert alert-danger  ml-4 mr-4 mb-0" role="alert"><strong>Error ! </strong>Oh snap Change a few things up and try submitting againOh snap Change a few things up and try submitting againOh snap Change a few things up and try submitting again</div>
+               </div>
+               <div class="p-2">
+                  <form class="group-user-list-gray-bg-color mt-0 mr-4 ml-4 mb-4 p-4">
+                     <div class="form-group">
+                        <label class="font-12 text-muted font-weight-bold" for="exampleInputFile">File</label>
+                        <div class="white-bg p-1">
+                           <input type="file" class="form-control-file" accept=".xls,.xlsx" id="exampleInputFile" aria-describedby="fileHelp">
+                        </div>
+                        <small id="fileHelp" class="form-text text-muted mt-2">
+                        <a href="http://cdn.talentify.in:9999/assets/bulk_upload_users.xlsx" style="color: red"><i class="far fa-file-excel mr-2"></i>Download Template</a><span>
+                        to know upload requirements</span>
+                        </small>
+                     </div>
+                     <div class="row">
+                        <div class="col-md-8">
+                           <label class="font-12 text-muted font-weight-bold"  for="license">Assign	License</label>
+                           <div id="license">$license</div>
+                           <small class="form-text text-muted">Note: You can also assign after uploading </small>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                     </div>
+                     <div class="row mt-3">
+                        <div class="col-md-8">
+                           <label class="font-12 text-muted font-weight-bold" for="groups">Assign	Group</label>
+                           <div id="groups">$groups</div>
+                           <small class="form-text text-muted">Note: You can also assign after uploading</small>
+                        </div>
+                        <div class="col-md-4">
+                        </div>
+                     </div>
+                  </form>
+               </div>
+               <div class="p-2"><button type="submit" class="btn btn-danger float-right mr-4 mb-2 w-25">Upload</button></div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

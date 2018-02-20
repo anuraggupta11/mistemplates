@@ -38,66 +38,7 @@
 }
 /*end of custom background color*/
 
-/*start of custom font class*/
-.font-11{
-	font-size:0.6875rem!important;
-	font-family: avenir-light;
-}
-.font-12{
-	font-size:0.75em!important;
-	font-family: avenir-light;
-}
-
-.font-13{
-	font-size: 0.8125em !important;
-	font-family: avenir-light;
-	}
-
-.font-14{
-	font-size: 0.8125em !important;
-	font-family: avenir-light;
-	}
-	.font-15{
-	font-size: 0.8125em !important;
-	font-family: avenir-light;
-	}	
-	
-	.font-16{
-	font-size: 1em !important;
-	font-family: avenir-light;
-	}
-	
-	.font-17{
-	font-size: 1.0625em !important;
-	font-family: avenir-light;
-	}
-	
-	.font-18{
-	font-size: 1.125em !important;
-	font-family: avenir-light;
-	}
-	
-	.font-19{
-	font-size: 1.1875em !important;
-	font-family: avenir-light;
-	}
-	
-	.font-20{
-	font-size: 1.25em !important;
-	font-family: avenir-light;
-	}
-	
-	.font-21{
-	font-size: 1.3125em !important;
-	font-family: avenir-light;
-	}
-	.font-22{
-	font-size: 1.375em !important;
-	font-family: avenir-light;
-	}
-
-
-/*end of custom font class*/
+ 
 
 
 .group-card-scroll {

@@ -23,6 +23,15 @@
     letter-spacing: 0.2px;
     color: rgba(153, 153, 153, 0.6);
 }
+.custom-bulkupload-add-user{
+	    font-size: 0.77rem;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    color: rgba(153, 153, 153, 0.6);
+}
+.group-user-list-gray-bg-color{
+	background-color: #f3f3f4;
+}
 
 
 
@@ -30,7 +39,9 @@
 	    overflow: auto;
     max-height: 130px;
 }
-
+.white-bg{
+	    background-color: white;
+}
 
 .viksit-multiselect-dropdown ::-webkit-scrollbar {
     width: 0.1em;
