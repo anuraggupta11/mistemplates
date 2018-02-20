@@ -1,0 +1,15 @@
+	<div class="dropdown viksit-multiselect-dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    $dropdown_name
+  </button>
+  <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
+  		<div class="dropdown-header">
+						<input class="form-control vikisit_search_dropdown_multiselect" type="text"
+							placeholder="Search">
+		</div>
+		#foreach($option in $optionsArray)
+		 <a class="dropdown-item" href="#" data-listid="$option.get('id')" data-ismapped="$option.get('is_mapped')" >$option.get('name')<i class="fas fa-check float-right  #if($option.get('is_mapped') == 'false')white#{else}red#end"></i> </a>
+		#end
+  </div>
+</div>
+			
