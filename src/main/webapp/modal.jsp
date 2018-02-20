@@ -20,48 +20,20 @@
 <jsp:include page="inc/head.jsp"></jsp:include>
 
 <style>
-.datatable_container>table>thead>tr>th.desc {
-	/* content: "\f35b";
+.datatable_container>table>thead>tr>th.afteractive::after {
+	content: "\f35b";
 	font-family: "Font Awesome\ 5 Free";
 	float: right;
-	color: black; */
-	background-image: url(http://localhost:8080/mistemplates/assets/img/sort-down.svg);
-    background-repeat: no-repeat;
-    background-color: white;
-    background-position: right;
-    background-size: 30% 30%;
-      background-color: #bad0b8;
-    
+	color: black;
 }
 
-.datatable_container>table>thead>tr>th.asc {
-	/* content: "\f358";
+.datatable_container>table>thead>tr>th.active::after {
+	content: "\f358";
 	font-family: "Font Awesome\ 5 Free";
 	float: right;
-	color: black; */
-	background-image: url(http://localhost:8080/mistemplates/assets/img/sort-up.svg);
-    background-repeat: no-repeat;
-    background-color: white;
-    background-position: right;
-    background-size: 30% 30%;
-      background-color: #bad0b8;
-    
+	color: black;
 }
 
-
-
-.datatable_container>table>thead>tr>th.default{
-	/* content: "\f358";
-	font-family: "Font Awesome\ 5 Free";
-	float: right;
-	color: black; */
-	background-image:  url(http://localhost:8080/mistemplates/assets/img/1.svg);
-    background-repeat: no-repeat;
-    background-color: white;
-    background-position: right;
-    background-size: 30% 30%;
-  background-color: #bad0b8;
-}
 
 
 /* Absolute Center Spinner */
@@ -199,20 +171,49 @@
 			<h3 class="p-2">Today's Event</h3>
 			<div class="row">
 				<div class="col-md-12">
-					<%=datatableService.getDataTable(1,null,null,null,null,null,null) %>
+				<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="dropdown show mydropdownitem">
+  <a class="btn btn-secondary dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown link
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item " href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item " href="#">Something else here</a>
+  </div>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 				</div>
 			</div>
 
 		</div>
-		
-		
-	
-			
 	</div>
 	<!-- /container -->
 	<jsp:include page="inc/foot.jsp"></jsp:include>
 	<script>
-  FontAwesomeConfig = { searchPseudoElements: true };
 </script>
 
 </body>

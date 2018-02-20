@@ -1,3 +1,4 @@
+
 $( document ).ready(function() {
 drawTable();
 });
@@ -44,30 +45,43 @@ function setUpColumnDropDown(data_table_id,table){
 
 
 function setupHeaderClick(table){
-	
+
 	if(table.attr('data-sorting') === 'true'){
 	$("thead > tr > th", table).unbind().click(function() {
+		$(this).removeClass('default');
+
 		var thead_column=$(this);
-		if($(this).attr('data-val').indexOf('desc') > -1){
-			var index = $(this).attr('data-val').indexOf('desc');
-			var temp = $(this).attr('data-val').substring(0,index-1);
-			$(this).attr('data-val',temp+' asc');
-			$(this).removeClass('afteractive');
-			$(this).addClass('active');
+		if($(this).attr('data-sort').indexOf('desc') > -1){
+			$(this).attr('data-sort','asc');
+			$(this).removeClass('desc');
+			$(this).addClass('asc');
 		}else{
-			$(this).attr('data-val',$(this).data('val')+' desc');
-			$(this).addClass('afteractive');
-			$(this).removeClass('active');
+			$(this).attr('data-sort','desc');
+			$(this).addClass('desc');
+			$(this).removeClass('asc');
 		}
+		
+		fetchJsonFromServer(table,table.attr('data-page'));
 	});
+
+	
+	
 	}
+	
+	
+	$("tbody> tr > td", table).unbind().click(function() {
+		var column_name = $(this).parent().parent().siblings('thead').children().children()[$(this).index()];
+		log('clicked '+column_name.textContent +' value --> '+$(this).html());
+	});
+	
+
 }
 
 function setupSearch(table,search){
 	search.unbind().keyup(function () {
 		log($(this).val());
 		table.attr('data-searchterm',$(this).val());
-		fetchJsonFromServer(table,$(this).val());
+		fetchJsonFromServer(table,table.attr('data-page'));
 	});
 
 }
@@ -105,23 +119,53 @@ function setupPagination(table,pagination){
 
 function fetchJsonFromServer(table,num){
 	var current_offset = table.attr('data-showentries')*(num-1);
+	var colmun_search_field = $('.datatablecolumnsearch').val();
+	
+	
 	if(current_offset >table.attr('data-total_count')  ){
 		current_offset = (Math.floor(table.attr('data-total_count')/table.attr('data-showentries')))*table.attr('data-showentries');
 	}
-	var url = table.data('url')+'?limit='+table.attr('data-showentries')+"&offset="+current_offset+"&showentries="+table.attr('data-showentries')+"&searchterm="+table.attr('data-searchterm');
+	
+	var arr = {};
+	$("thead > tr > th", table).each(function(){
+		arr[$(this).text()]=$(this).attr('data-sort');
+	});
+	console.log(arr);
+
+	
+	var url = table.data('url')+'?limit='+table.attr('data-showentries')+"&offset="+current_offset
+				+"&showentries="+table.attr('data-showentries')+"&searchterm="
+				+table.attr('data-searchterm')+"&colmun_search_field="+colmun_search_field
+				
 	$('.loading').show();
-	$.post(url, function( data ) {
+	$.post(url, {sorted:JSON.stringify(arr)},function( data ) {
 		var id = $(data).find('table').data('id')+'_datatable';
-		
+
 		var new_node = $.parseHTML( data );
 		$('#'+id).replaceWith(new_node);
 		$('#'+id).find('table').attr('data-page',num);
 		$('#'+id).find('.datatable_select').val( $(data).find('table').attr('data-showentries'));
-		
+		$('#'+id).find('.datatablecolumnsearch').val( $(data).find('table').attr('data-colmun_search_field'));
+
 		if($(data).find('table').attr('data-searchterm') !== ""){
 		$('#'+id).find('.datatablesearch').val($(data).find('table').attr('data-searchterm'));
 		$('#'+id).find('.datatablesearch').focus();
 		}
+		
+		
+		
+$("thead > tr > th", $('#'+id).find('table')).each(function() {
+			
+			if($(this).attr('data-sort').indexOf('desc') > -1){
+				$(this).removeClass('default');
+				$(this).addClass('desc');
+			}else if($(this).attr('data-sort').indexOf('asc') > -1){
+				$(this).removeClass('default');
+				$(this).addClass('asc');
+			}
+		});
+		
+		
 		afterDrawtable(id);
 	    setTimeout(function(){
 			$('.loading').hide();

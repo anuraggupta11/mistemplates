@@ -107,7 +107,9 @@
 
 /*end of custom font class*/
 
-
+#white{
+	fill:#dcdcdc !important;
+}
 /* start of custom image css*/
 .custom_image_size_80{
 	height:80px;
@@ -119,4 +121,8 @@
 	overflow-x: hidden;
 		overflow-y: auto;
 	
+}
+
+.d-table{
+	    display: table;
 }

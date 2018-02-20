@@ -6,6 +6,8 @@ public class Column {
 	private String name;
 	private Boolean dropDownFilter = false;
 	private String searchTerm ="";
+	private String sorting="";
+	
 	public Column() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -45,6 +47,14 @@ public class Column {
 
 	public void setSearchTerm(String searchTerm) {
 		this.searchTerm = searchTerm;
+	}
+
+	public String getSorting() {
+		return sorting;
+	}
+
+	public void setSorting(String sorting) {
+		this.sorting = sorting;
 	}
 	
 	

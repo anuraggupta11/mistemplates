@@ -2,22 +2,16 @@
 <div id=$table_id >
 
 <div class="d-flex justify-content-end">
-   #foreach($column in $datatable.columns)
-   #if($column.dropDownFilter)
-   #set($placeholder= "Search by "+$column.name)
    <div class="p-2">
       <div class="form-group">     
       <select class="custom-select datatablecolumnsearch" data-column=$column.name>
-         <option selected value="10">10</option>
-         <option value="20">20</option>
-         <option value="30">30</option>
-         <option value="40">40</option>
-         <option value="50">50</option>
+         <option selected value="All">All</option>
+            #foreach($column in $datatable.columns)
+         <option value="$column.name">$column.name</option>
+           #end
       </select>
       </div>
    </div>
-   #end
-  #end
 </div>
 
 
@@ -36,26 +30,32 @@
    </div>
 </div>
 <div class="datatable_container" id=$datatable.id >
-   <table data-id=$datatable.id data-sorting=$datatable.sorting data-page="1" class='table table-bordered' data-url=$datatable.url
+   <table data-id=$datatable.id data-sorting=$datatable.sorting data-page="1" class='table table-bordered table-responsive' data-url=$datatable.url
    data-total_count=$count data-limit=$datatable.limit data-offset=$datatable.offset data-showentries=$datatable.showentries 
-   data-searchterm=$datatable.searchterm     >
-      <thead>
+   data-searchterm="$datatable.searchterm" data-colmun_search_field="$colmun_search_field"    >
+      <thead >
          <tr>
             #foreach($column in $datatable.columns)
-            <th data-val=$column.name>$column.name</th>
+            <th class="text-center align-middle default" data-sort="$column.sorting" style="min-width:100px;">$column.name</th>
             #end
          </tr>
       </thead>
-      <tbody>
-         #foreach($temp in $response.get('data'))
-         <tr>
-            #foreach($tempcolumn in $datatable.columns)
-            <td>$temp.get($tempcolumn.name)</td>
-            #end
-         </tr>
+      <tbody >
+      	 #if($count > 0 )
+        	         #foreach($temp in $response.get('data'))
+         	<tr class="text-center">
+            	#foreach($tempcolumn in $datatable.columns)
+            	<td class="text-center">$temp.get($tempcolumn.name)</td>
+            	#end
+         	</tr>
+         	#end
+        #else
+        	 
+   <tr class="text-center"><td colspan="$datatable.columns.size()"> No matching record found</td></tr>
          #end
       </tbody>
    </table>
+    
    <div class="page-selection" data-total_count=$count></div>
 </div>
 </div>

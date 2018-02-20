@@ -3,6 +3,7 @@ package testdatatable;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.net.URLEncoder;
 import java.util.HashSet;
 
 import javax.xml.bind.JAXBContext;
@@ -16,6 +17,8 @@ import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.json.JSONObject;
 
+import com.google.gson.JsonObject;
+
 import component.http.HttpUtils;
 
 public class NewDatatableService {
@@ -26,7 +29,7 @@ public class NewDatatableService {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getDataTable(Integer id,Integer limit, Integer offset, Integer showentries,String searchterm) throws IOException {
+	public String getDataTable(Integer id,Integer limit, Integer offset, Integer showentries,String searchterm,String colmun_search_field,String sorted) throws IOException {
 		
 		ClassLoader classLoader =TestDatatableService.class.getClassLoader();
 		 File file = new File(classLoader.getResource("datatable/table.xml").getFile());
@@ -40,7 +43,7 @@ public class NewDatatableService {
 	        	if(dataTable.getId() == id) {
 	        		
 	        		
-	        		return getDataTableHtml(dataTable,limit,offset,showentries,searchterm);
+	        		return getDataTableHtml(dataTable,limit,offset,showentries,searchterm,colmun_search_field,sorted);
 	        	}
 	        }
 			} catch (JAXBException e) {
@@ -55,7 +58,7 @@ public class NewDatatableService {
 	}
 	
 	
-	private String getDataTableHtml(DataTable dataTable,Integer limit, Integer offset,Integer showentries,String searchterm) {
+	private String getDataTableHtml(DataTable dataTable,Integer limit, Integer offset,Integer showentries,String searchterm,String colmun_search_field,String sorted) {
 		  VelocityEngine ve = new VelocityEngine();
 	        ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
 	        ve.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
@@ -64,7 +67,6 @@ public class NewDatatableService {
 	        /*  next, get the Template  */
 	        Template t = ve.getTemplate( "templates/datatable/datatable.vm" );
 	        VelocityContext context = new VelocityContext();
-	        context.put("datatable",dataTable);
 			HttpUtils httpUtils = new HttpUtils();
 			String response="";
 	        try {
@@ -77,25 +79,44 @@ public class NewDatatableService {
                 			dataTable.setShowentries(showentries);
                 			if(searchterm != null)
                 				dataTable.setSearchterm(searchterm);
-            				response = httpUtils.makeHttpCall(dataTable.getUrl()+"?limit="+limit+"&offset="+offset+"&showentries="+showentries+"&searchterm="+searchterm, "GET");
+            				response = httpUtils.makeHttpCall(dataTable.getUrl()+"?limit="+limit+"&offset="+offset
+            						+"&showentries="+showentries+"&searchterm="+searchterm
+            						+"&colmun_search_field="+colmun_search_field+"&sorted="+URLEncoder.encode(sorted), "GET");
         				}else {
         				response = httpUtils.makeHttpCall(dataTable.getUrl()+"?limit="+limit+"&offset="+offset, "GET");
+        				}
+        				
+        				
+        				if(sorted != null && !sorted.equalsIgnoreCase("")) {
+        					JSONObject jsonObject = new JSONObject(sorted);
+        					for(Column column: dataTable.getColumns()) {
+        						String val = jsonObject.get(column.getName()).toString();
+        						column.setSorting(val);
+        					}
         				}
         			}
 
         		}
     		}else {
 				response = httpUtils.makeHttpCall(dataTable.getUrl(), "GET");
-
+					
     		}
 	        
 			
 				JSONObject jsonObject = new JSONObject(response);
 				
 				Integer total_count= jsonObject.getInt("total_count");
-		        context.put("count",total_count);
+		        context.put("datatable",dataTable);
+				context.put("count",total_count);
 		        context.put("responseSelect",jsonObject);
 		        context.put("response",jsonObject);
+		        if(colmun_search_field != null && !colmun_search_field.equalsIgnoreCase("") ) {
+			        context.put("colmun_search_field",colmun_search_field);
+
+		        }else {
+			        context.put("colmun_search_field","");
+
+		        }
 
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

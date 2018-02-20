@@ -1,9 +1,19 @@
 $( document ).ready(function() {
  
- 
+	  $('[data-toggle="popover"]').popover({
+		  html:true,
+		  content: function(){
+			  return $('#popover_content').html();
+		  }
+		  
+	  });
+
 resetSearchBox();
 setTimeout(equalheights,500);
-
+$('.mydropdownitem>.dropdown-menu>.dropdown-item').unbind().click(function(e){
+	
+	alert('ddd');
+});
 
 handleChangeEvent();
 

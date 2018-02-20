@@ -2,7 +2,7 @@
 <dataTables>
     <DataTable id="1" offset="0" limit="10" showentries="10" searchterm="" searching="true" sorting="true" url="http://localhost:8080/mistemplates/GetDataTable">
         <column name="name" dropDownFilter="true"/>
-        <column name="age" dropDownFilter="true"/>
+        <column name="Bahot bada header hai" dropDownFilter="true"/>
         <column name="email" dropDownFilter="true"/>
         <column name="gender" dropDownFilter="true"/>
         <column name="address" dropDownFilter="true"/>

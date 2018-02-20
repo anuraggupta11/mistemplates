@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +38,11 @@ public class GetDataTable extends HttpServlet {
 		int offset =0 ;
 		Integer showentries = null;
 		String searchterm = null;
-		String columnname="";
+		String colmun_search_field="";
+		String sorted = null;
+		JSONObject jsonObject = null;
+  		 StringBuffer sb = new StringBuffer();
+
 		if(request.getParameter("limit") !=null) {
 			try {
 				limit= Integer.parseInt(request.getParameter("limit").toString());
@@ -71,6 +76,40 @@ public class GetDataTable extends HttpServlet {
 			}
 		}
 		
+
+		if(request.getParameter("colmun_search_field") !=null) {
+			try {
+				colmun_search_field= request.getParameter("colmun_search_field").toString();
+				 
+			}catch(Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+		
+		if(request.getParameter("sorted") !=null) {
+			try {
+				sorted= request.getParameter("sorted");
+				jsonObject= new JSONObject(sorted);
+				 
+			}catch(Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+		
+		if(jsonObject != null) {
+   		 for(String key:jsonObject.keySet()) {
+   			 if(!jsonObject.get(key).toString().equalsIgnoreCase("")) {
+   				 sb.append("\""+key+"\" "+jsonObject.get(key)+",");
+   			 }
+   			 
+   		 }
+   		 String reverse = sb.reverse().toString().replaceFirst(",", "");
+   		 sb = new StringBuffer(reverse).reverse();
+		}
+		
+		
 		Connection c = null;
 	      Statement stmt = null;
 	         JSONArray jsonArray = new JSONArray();
@@ -90,24 +129,111 @@ public class GetDataTable extends HttpServlet {
 	         		+ ") tt) as data ) t";*/
 	         
 	         if(searchterm != null && !searchterm.equalsIgnoreCase("")) {
-	        	 sql="SELECT 	row_to_json (T)   FROM 	( 		SELECT 			( 				SELECT 					COUNT (*) 				FROM 					PUBLIC .chotitable 			) AS total_count, 			( 				SELECT 					json_agg (row_to_json(tt)) 				FROM 					( 						SELECT 							* 						FROM 							PUBLIC .chotitable where lower(name) like '%"
-		        	 		+ searchterm
-		        	 		+ "%'  OR lower(email) like '%"
-		        	 		+ searchterm + "%' OR lower(gender) like '%"
-		        	 		+ searchterm + "%' OR lower(address) like '%"
-		        	 		+ searchterm + "%' 						ORDER BY 							ID 						LIMIT "
-		        	 		+ limit
-		        	 		+ " OFFSET "
-		        	 		+ offset
-		        	 		+ " 					) tt 			) AS DATA 	) T";
+	        	 
+	        	 if(colmun_search_field != null && !colmun_search_field.equalsIgnoreCase("") && !colmun_search_field.equalsIgnoreCase("All")) {
+	        		 
+	        		 if(jsonObject != null && !(jsonObject.length() == 0) && !sb.toString().equalsIgnoreCase("")) {
+	        			 sql = "SELECT 	row_to_json (T) FROM 	( 		SELECT 			( 				SELECT 					COUNT (*) 				FROM 					PUBLIC .chotitable 				WHERE 							LOWER ("
+	 	        		 		+ "cast("+colmun_search_field+" as varchar) "
+	 	        		 		+ ") LIKE '%"
+	 	        		 		+ searchterm.toLowerCase()
+	 	        		 		+ "%' 						 						 			) AS total_count, 			( 				SELECT 					json_agg (row_to_json(tt)) 				FROM 					( 						SELECT 							* 						FROM 							PUBLIC .chotitable 						WHERE 							LOWER ("
+		        		 		+ "cast("+colmun_search_field+" as varchar) "
+	 	        		 		+ ") LIKE '%"
+	 	        		 		+ searchterm.toLowerCase()
+	 	        		 		+ "%' 						 						ORDER BY 							"
+	 	        		 		+ sb.toString()
+	 	        		 		+ " 						LIMIT "
+	 	        		 		+ limit
+	 	        		 		+ " OFFSET "
+	 	        		 		+ offset
+	 	        		 		+ " 					) tt 			) AS DATA 	) T"; 
+	        		 }else {
+	        		 sql = "SELECT 	row_to_json (T) FROM 	( 		SELECT 			( 				SELECT 					COUNT (*) 				FROM 					PUBLIC .chotitable 				WHERE 							LOWER ("
+		        		 		+ "cast("+colmun_search_field+" as varchar) "
+	        		 		+ ") LIKE '%"
+	        		 		+ searchterm.toLowerCase()
+	        		 		+ "%' 						 						 			) AS total_count, 			( 				SELECT 					json_agg (row_to_json(tt)) 				FROM 					( 						SELECT 							* 						FROM 							PUBLIC .chotitable 						WHERE 							LOWER ("
+	        		 		+ "cast("+colmun_search_field+" as varchar) "
+	        		 		+ ") LIKE '%"
+	        		 		+ searchterm.toLowerCase()
+	        		 		+ "%' 						 						ORDER BY 							ID 						LIMIT "
+	        		 		+ limit
+	        		 		+ " OFFSET "
+	        		 		+ offset
+	        		 		+ " 					) tt 			) AS DATA 	) T"; 
+	        		 
+	        		 
+	        		 }}else {
+	        	 
+	        			 if(jsonObject != null  && !(jsonObject.length() == 0) && !sb.toString().equalsIgnoreCase("")) {
+	        				 sql = "SELECT 	row_to_json (T) FROM 	( 		SELECT 			( 				SELECT 					COUNT (*) 				FROM 					PUBLIC .chotitable 				WHERE 							LOWER (NAME) LIKE '%"
+	        		        	 		+ searchterm.toLowerCase()
+	        		        	 		+ "%' 						OR LOWER (email) LIKE '%"
+	        		        	 		+ searchterm.toLowerCase()
+	        		        	 		+ "%' 						OR LOWER (gender) LIKE '%"
+	        		        	 		+ searchterm.toLowerCase()
+	        		        	 		+ "%' 						OR LOWER (address) LIKE '%"
+	        		        	 		+ searchterm.toLowerCase()
+	        		        	 		+ "%' 						 			) AS total_count, 			( 				SELECT 					json_agg (row_to_json(tt)) 				FROM 					( 						SELECT 							* 						FROM 							PUBLIC .chotitable 						WHERE 							LOWER (NAME) LIKE '%"
+	        		        	 		+ searchterm.toLowerCase()
+	        		        	 		+ "%' 						OR LOWER (email) LIKE '%"
+	        		        	 		+ searchterm.toLowerCase()
+	        		        	 		+ "%' 						OR LOWER (gender) LIKE '%"
+	        		        	 		+ searchterm.toLowerCase()
+	        		        	 		+ "%' 						OR LOWER (address) LIKE '%"
+	        		        	 		+ searchterm.toLowerCase()
+	        		        	 		+ "%' 						ORDER BY 						"
+	        		        	 		+ sb.toString()
+	        		        	 		+ " 						LIMIT "
+	        		        	 		+ limit
+	        		        	 		+ " OFFSET "
+	        		        	 		+ offset
+	        		        	 		+ "					) tt 			) AS DATA 	) T";
+		        		 }else {
+	        	 sql = "SELECT 	row_to_json (T) FROM 	( 		SELECT 			( 				SELECT 					COUNT (*) 				FROM 					PUBLIC .chotitable 				WHERE 							LOWER (NAME) LIKE '%"
+	        	 		+ searchterm.toLowerCase()
+	        	 		+ "%' 						OR LOWER (email) LIKE '%"
+	        	 		+ searchterm.toLowerCase()
+	        	 		+ "%' 						OR LOWER (gender) LIKE '%"
+	        	 		+ searchterm.toLowerCase()
+	        	 		+ "%' 						OR LOWER (address) LIKE '%"
+	        	 		+ searchterm.toLowerCase()
+	        	 		+ "%' 						 			) AS total_count, 			( 				SELECT 					json_agg (row_to_json(tt)) 				FROM 					( 						SELECT 							* 						FROM 							PUBLIC .chotitable 						WHERE 							LOWER (NAME) LIKE '%"
+	        	 		+ searchterm.toLowerCase()
+	        	 		+ "%' 						OR LOWER (email) LIKE '%"
+	        	 		+ searchterm.toLowerCase()
+	        	 		+ "%' 						OR LOWER (gender) LIKE '%"
+	        	 		+ searchterm.toLowerCase()
+	        	 		+ "%' 						OR LOWER (address) LIKE '%"
+	        	 		+ searchterm.toLowerCase()
+	        	 		+ "%' 						ORDER BY 							ID 						LIMIT "
+	        	 		+ limit
+	        	 		+ " OFFSET "
+	        	 		+ offset
+	        	 		+ "					) tt 			) AS DATA 	) T";
+		        		 }
+	        	 }
 	         }else {
+	        	 
+	        	 if(jsonObject != null  && !(jsonObject.length() == 0) && !sb.toString().equalsIgnoreCase("") ) {
+
+	 				sql = "SELECT 	row_to_json (T) FROM 	( 		SELECT 			( 				SELECT 					COUNT (*) 				FROM 					PUBLIC .chotitable 			) AS total_count, 			( 				SELECT 					json_agg (row_to_json(tt)) 				FROM 					( 						SELECT 							* 						FROM 							PUBLIC .chotitable 						ORDER BY "
+	 						+ sb.toString()
+	 						+ "		 						LIMIT "
+	 						+ limit
+	 						+ " OFFSET "
+	 						+ offset
+	 						+ "					) tt 			) AS DATA 	) T";
+	 					 				
+	        	 } else {
 	        	 sql =" SELECT 	row_to_json (T) FROM 	( 		SELECT 			(SELECT	COUNT (*)FROM	PUBLIC .chotitable 			) AS total_count, 			(SELECT	json_agg (row_to_json(tt))FROM	(		SELECT			*		FROM			PUBLIC .chotitable		ORDER BY			ID		"
 	 	         		+ "LIMIT "
 	 	         		+ limit
 	 	         		+ " OFFSET "
 	 	         		+ offset
 	 	         		+ "	) tt 			) AS DATA 	) T";
-	        	
+	        	 }
 	         }
 	         System.out.println("query "  + sql);
 	         ResultSet rs = stmt.executeQuery( sql );
@@ -145,7 +271,8 @@ public class GetDataTable extends HttpServlet {
 		Integer offset =0 ;
 		Integer showentries = null;
 		String searchterm = null;
-		
+		String colmun_search_field = null;
+		String  sorted = null;
 		if(request.getParameter("limit") !=null) {
 			try {
 				limit= Integer.parseInt(request.getParameter("limit").toString());
@@ -183,9 +310,32 @@ public class GetDataTable extends HttpServlet {
 			}
 		}
 		
+		if(request.getParameter("colmun_search_field") !=null) {
+			try {
+				colmun_search_field= request.getParameter("colmun_search_field").toString();
+				 
+			}catch(Exception e) {
+				e.printStackTrace();
+
+			}
+		}
+		
+		
+		
+		if(request.getParameter("sorted") !=null) {
+			try {
+				sorted= request.getParameter("sorted");
+				System.err.println(" val "+sorted);
+
+				 
+			}catch(Exception e) {
+				e.printStackTrace();
+
+			}
+		}
 		NewDatatableService datatableService = new NewDatatableService();
 
-		response.getWriter().println(datatableService.getDataTable(1,limit,offset,showentries,searchterm));
+		response.getWriter().println(datatableService.getDataTable(1,limit,offset,showentries,searchterm,colmun_search_field,sorted));
 		
 		//doGet(request, response);
 	}
