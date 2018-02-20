@@ -11,3 +11,37 @@
 .group-user-shadow{
 	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 2px 0px 30px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
+.sky-blue-color{
+	    color: #23b6f9;
+}
+.red{
+	color: red;
+}
+.custom-label-add-user{
+	    font-size: 0.77rem;
+    font-weight: bold;
+    letter-spacing: 0.2px;
+    color: rgba(153, 153, 153, 0.6);
+}
+
+
+
+.scroll-dropdown-create-user{
+	    overflow: auto;
+    max-height: 130px;
+}
+
+
+.viksit-multiselect-dropdown ::-webkit-scrollbar {
+    width: 0.1em;
+    height: 0.1em
+}
+.viksit-multiselect-dropdown ::-webkit-scrollbar-button {
+    background: #ccc
+}
+.viksit-multiselect-dropdown ::-webkit-scrollbar-track-piece {
+    background: #888
+}
+.viksit-multiselect-dropdown ::-webkit-scrollbar-thumb {
+    background: #eee
+}

@@ -40,8 +40,7 @@
 
  
 <div class="d-flex justify-content-end mt-3">
-  <div class="mr-auto p-2">Flex item</div>
-  <div class="p-2"><button type="button" class="btn btn-danger"  id="addUserBtnId"  data-toggle="modal" data-target="#addUserModal"><i class="fa fa-plus mr-1" style="font-size: 12px !important; aria-hidden='true'"></i>Add User</button></div>
+  <div class="p-2"><button type="button" class="btn btn-danger"  id="addUserBtnId"  data-target="#addUserModal"   data-toggle="modal" ><i class="fa fa-plus mr-1" style="font-size: 12px !important; aria-hidden='true'"></i>Add User</button></div>
   <div class="p-2"><button type="button" class="btn btn-danger">Bulk Upload</button></div>
   
   
@@ -52,21 +51,87 @@
 
 <!-- Modal -->
 <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addUserModalLabel">ADD NEW USER</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content w-75 ml-auto mr-auto">
+      <div class="modal-header justify-content-center">
+      	<div class="col-md-4">
+      	</div>
+      	<div class="col-md-5">
+      	 <h5 class="modal-title sky-blue-color" id="addUserModalLabel">ADD NEW USER</h5>
+      	</div>
+      	<div class="col-md-3">
+      	  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
+      	</div>
       </div>
+      
       <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+		  <form id="addUserFormId">	
+			 	  <div class="row">
+						    <div class="form-group col-md-6">
+						      <label class="custom-label-add-user " for="fullName">Name</label>
+						      <input type="text" class="form-control" id="fullName" placeholder="Enter Your Name" required>
+						    </div>
+						    <div class="form-group  col-md-6">
+						      <label class="custom-label-add-users"  for="emailId">Email</label>
+						      <input type="email" class="form-control" id="emailId" placeholder="Enter Email Id" required>
+						      <div class="form-control-feedback" id="emailMessageId"></div>
+						    </div>
+						  </div>
+						    <div class="row">
+						      <div class="form-group col-md-6">
+						    <label class="custom-label-add-user"  for="phoneNo">Phone Number</label>
+						    <input type="number"     class="form-control" id="phoneNo" placeholder="Enter 10 Digit Number" required>
+						      <div class="form-control-feedback" id="phonenoMessageId"></div>
+						  </div>
+						  
+						   <div class="form-group col-md-6">
+						    <label class="custom-label-add-user"  for="pinCode">Pin Code</label>
+						    <input type="number" class="form-control" id="pinCode" placeholder="Enter 6 Digit Pincode" required>
+						      <div class="form-control-feedback" id="pincodeMessageId"></div>
+						  </div>
+						    </div>
+						     <div class="row">
+						      <div class="form-group col-md-6">
+						    <label class="custom-label-add-user"  for="inputAddress1">Address Line 1</label>
+						    <input type="text" class="form-control" id="inputAddress1" placeholder="Enter Address Line 1">
+						  </div>
+						  
+						    <div class="form-group col-md-6">
+						    <label class="custom-label-add-user"  for="inputAddress2">Address Line 2</label>
+						    <input type="text" class="form-control" id="inputAddress2" placeholder="Enter Address Line 2">
+						  </div>
+						     </div>
+						     
+						     <div class="row">
+						     <div class="col-md-6">
+						       <label class="custom-label-add-user"  for="jobRole">Job Role</label>
+						     <div  id="jobRole" >$jobRole</div>
+						     </div>
+						      <div class="col-md-6">
+						       <label class="custom-label-add-user"  for="unit">Product/Business Unit/Department</label>
+								<div id="unit">$unit </div>
+							  </div>
+						     </div>
+						     
+						      <div class="row">
+						      <div class="col-md-6">
+						      	   <label class="custom-label-add-user"  for="license">Assign	License</label>
+						    	   <div id="license">$license</div>
+						      </div>
+						    
+								<div class="col-md-6">
+									 <label class="custom-label-add-user"  for="groups">Assign	Group</label>
+						    	   <div id="groups">$groups</div>
+								</div>
+						     </div>		
+						     <button type="submit" class="btn btn-danger float-right mt-4">Add User</button>		
+						     </form>
+    			  </div>
+       
+        
+      	
     </div>
   </div>
 </div>

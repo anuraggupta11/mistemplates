@@ -7,11 +7,11 @@
 <script src="assets/js/jquery.rateyo.min.js"></script>
 <script type="text/javascript"	src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="assets/js/jquery.bootpag.min.js"></script>
-<script src="assets/js/app.js"></script>
+ 
 <script src="assets/js/caurosal.js"></script>
  
 <script src="assets/js/group_user_list.js"></script>
-<script src="assets/js/group.js"></script>
-<script src="assets/js/create_group.js"></script>
+ 
+ 
 <script src="assets/js/datatable.js"></script>
  
