@@ -1,6 +1,5 @@
 
 <!DOCTYPE html>
-<%@page import="report.RolesReport"%>
 <%@page import="report.GroupsReport"%>
 <html lang="en">
 <head>
@@ -27,7 +26,7 @@
 		<div class="container">
 		
 		
-		<%= new RolesReport().getRolesReportData() %>
+		<%= new GroupsReport().getGroupReportData() %>
 		</div>
 	</div>
 

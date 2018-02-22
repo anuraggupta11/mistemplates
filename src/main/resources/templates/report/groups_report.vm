@@ -1,0 +1,102 @@
+<div class="row">
+   <ol class="breadcrumb breadcrumb-bar font-20 font-weight-bold breadcrumb-bg-transparent pl-0">
+      <li class="breadcrumb-item "><a class="breadcrumb-notselected-item" href="roles_report.jsp">Courses</a></li>
+      <li class="breadcrumb-item "><a href="#" class="breadcrumb-selected-item">Groups</a></li>
+   </ol>
+</div>
+#foreach( $group_card in $data.get('data') )
+<div class="row mb-4">
+   <div class="card w-100 roles-report-card-shadow">
+      <div class="card-block">
+         <div class="d-flex flex-column">
+               <h4>$group_card.get('group_name')</h4>
+        
+               <div class="rating-groups-report p-0 mt-1" data-groupfeedback="$group_card.get('group_feedback')"></div>
+       
+           
+              		 			<div class="row mt-3">
+                 					 <div class="col-md-3 col-sm-12">
+                    			 		<div class="row">
+		                    			 	<div class="col-6">
+					                           <i class="fas fa-book fa-lg sky-blue-color"></i>
+					                           <div class="font-19 pt-2"><strong class="pr-1">$group_card.get('course_in_group')</strong>Courses</div>
+					                        </div>
+					                        <div class="col-6">
+					                           <i class="far fa-user fa-lg sky-blue-color"></i>
+					                           <div class="font-19 pt-2"><strong class="pr-1">$group_card.get('total_student')</strong>Employee</div>
+					                        </div>
+                    					 </div>
+                  					</div>
+                  					<div class="col-md-3 col-sm-12">
+                  						<div class="row">
+		                    			 	<div class="col-6">
+			                         			  <i class="fas fa-tasks fa-lg sky-blue-color"></i>
+			                          		 	  <div class="font-19 pt-2"><strong class="pr-1">$group_card.get('group_attendance')%</strong>Attendance</div>
+			                       			 </div>
+			                      			  <div class="col-6">
+			                      			     <i class="far fa-compass fa-lg sky-blue-color"></i>
+			                           			 <div class="font-19 pt-2"><strong class="pr-1">$group_card.get('group_performance')%</strong>Performance</div>
+			                      			  </div>
+                    			 		</div>
+                					</div>
+                					<div class="col-md-6">
+                					</div>
+              					</div>
+           
+         </div>
+         <hr>
+         <div class="course-card-in-group row">
+            #foreach( $course in $group_card.get('courses'))
+            <div class="card m-2">
+               <div class="card-header">
+               		<div class="row">
+               				<div class="col-3">
+               					<img class="img-thumbnail course-report-image border-0 p-0" alt="No image" src="$course.get('course_image')" >
+               					
+               				</div>
+               				<div class="col-9 p-0">
+               					 $course.get('course_name')
+                 				 <div class="rate-group-roles-report p-0" data-coursefeedback="$course.get('course_feedback')"></div>
+               				</div>
+               		</div>
+               </div>
+               <div class="card-block">
+                  <div class="row">
+                     <div class="col-md-8">
+                        <div class="row">
+                           <div class="col-4">
+                             <i class="far fa-user fa-lg sky-blue-color"></i>
+                              <div class="font-12 font-weight-bold">$course.get('total_student')</div>
+                           </div>
+                           <div class="col-4">
+                               <i class="fas fa-tasks fa-lg sky-blue-color"></i>
+                              <div class="font-12 font-weight-bold">$course.get('course_attendance')%</div>
+                           </div>
+                           <div class="col-4">
+                                <i class="far fa-compass fa-lg sky-blue-color"></i>
+                              <div class="font-12 font-weight-bold">$course.get('course_performance')%</div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-4">
+                     </div>
+                  </div>
+                  <div class="font-12 font-weight-bold">Course completion</div>
+                  <div class="row">
+                     <div class="col-10 pl-0 pr-0">
+                        <div class="progress progress-bar-center-postion" >
+                           <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="height:6px; width: $course.get('course_completion')%; " aria-valuenow="$course.get('course_completion')" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                     </div>
+                     <div class="col-2">
+                        $course.get('course_completion')%
+                     </div>
+                  </div>
+               </div>
+            </div>
+            #end
+         </div>
+      </div>
+   </div>
+</div>
+#end

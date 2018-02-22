@@ -23,7 +23,7 @@
 
 #foreach( $group_card in $data.get('data') )
 <div class="col-md-4">
-<div class="card group-card-shadow group-card-cursor equal_heights mt-3 mb-2 rounded-0"  data-groupType="$group_card.get('group_type')" data-groupName="$group_card.get('name')" data-groupid="$group_card.get('id')">
+<div class="card group-card-shadow custom-cursor equal_heights mt-3 mb-2 rounded-0"  data-groupType="$group_card.get('group_type')" data-groupName="$group_card.get('name')" data-groupid="$group_card.get('id')">
    <div class="card-header white-bg">
       <div class="row">
          <div class="col-md-8">

@@ -1,0 +1,31 @@
+/* starts css of progress bar*/
+.progress-bar-center-postion{
+	top: 50%; 
+   position: relative;
+}
+/* ends css of progress bar*/
+
+.roles-report-card-shadow{
+	    box-shadow: 1px 10px 48px 4px rgba(194,194,194,0.7);
+}
+.course-report-image{
+	box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.14), 0 4px 5px 0 rgba(0, 0, 0, 0.21);
+}
+
+/*start css of bread crumb*/
+.breadcrumb-bar .breadcrumb-item+.breadcrumb-item::before {
+    content: "|";
+        padding-right: 1.1rem !important;
+    padding-left: 1.1rem !important;
+}
+.breadcrumb-selected-item{
+	    color: #333333 !important;
+    border-bottom: 3px solid #eb384f;
+}
+.breadcrumb-notselected-item{
+	color: #999999 !important;
+}
+  .breadcrumb-bg-transparent{
+      background-color: transparent;
+  }  
+/*end css of bread crumb*/

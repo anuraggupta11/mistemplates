@@ -11,6 +11,7 @@ groupCardClick();
 
 function groupCardClick(){
 	$('.group-card-cursor').unbind().click(function (e){
+		e.stopPropagation();	
 		var group_id=$(this).data('groupid');
 		log(group_id);
 		location.href="group_user_list.jsp?id="+group_id;
@@ -162,6 +163,10 @@ function readMoreReadLessByClass(){
 	    readLessText: 'Show fewer items ...',
 	    readMoreClass:'button',
 	    readLessClass:'button'
+	});
+	
+	$('.group_skill_list').unbind().click(function (e){
+	e.stopPropagation();
 	});
 }
 

@@ -133,4 +133,9 @@
 	    display: table;
 }
 
+/*start of cursur pointer */
+.custom-cursor{
+	    cursor: pointer;
+}
+/*end of cursur pointer */
 

@@ -19,18 +19,19 @@ public class GroupsReport {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public String getRolesReportData() throws IOException {
+	
+	public String getGroupReportData() throws IOException {
 		  VelocityEngine ve = new VelocityEngine();
 	        ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
 	        ve.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
 	        ve.init();
 	        	
 	        /*  next, get the Template  */
-	        Template t = ve.getTemplate( "templates/report/roles_report.vm" );
+	        Template t = ve.getTemplate( "templates/report/groups_report.vm" );
 	       
 	        /*  create a context and add data */
 	        HttpUtils httpUtils = new HttpUtils();
-	        String responseData = httpUtils.makeHttpCall("http://192.168.1.13:8080/istar/rest/principal/dashboard/3/get_all_courses_reports", "GET");
+	        String responseData = httpUtils.makeHttpCall("http://192.168.1.13:8080/istar/rest/principal/dashboard/3/get_all_groups_reports", "GET");
 	       JSONObject json =  new JSONObject(responseData);
 
 	       VelocityContext context = new VelocityContext();
@@ -43,5 +44,6 @@ public class GroupsReport {
 	        System.out.println( writer.toString() );
 	        return writer.toString();
 	}
+	
 
 }

@@ -73,7 +73,6 @@
 			<div class="d-flex flex-row">
 			<div class="col-md-8">
 				 <div class="p-0 text-danger float-right"  style="display: none;"  id="skillValdationId"><small>This entry can not be empty for scan job description</small></div>
-				 
 			</div>
 			<div class="col-md-4">
 			</div>
