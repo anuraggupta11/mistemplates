@@ -57,7 +57,7 @@ public class RolesReport {
 	        // http://192.168.1.13:8080/istar/rest/course/3/group_filter/1
 	        // http://192.168.1.13:8080/istar/rest/course/3/skill_mastery_level/1/5407
 	        HttpUtils httpUtils = new HttpUtils();
-	        String responseData = httpUtils.makeHttpCall("http://192.168.1.13:8080/istar/rest/principal/dashboard/3/get_all_courses_reports", "GET");
+	        String responseData = httpUtils.makeHttpCall("http://192.168.1.13:8080/istar/rest/course/3/course_stats_performance/"+courseId, "GET");
 	        JSONObject json =  new JSONObject(responseData);
 
 	       VelocityContext context = new VelocityContext();
