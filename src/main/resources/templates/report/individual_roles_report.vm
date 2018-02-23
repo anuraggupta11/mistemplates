@@ -1,0 +1,32 @@
+<div class="row mb-4">
+   <div class="card w-100 roles-report-card-shadow">
+      <div class="card-block ">
+         <div class="row">
+            <div class="col-1">
+            </div>
+             <div class="col-2 text-center border-stats-performance-box p-5" >
+             	<i class="fas fa-users fa-3x"></i>
+             	<div><strong>951</strong><br>Target User</div>
+             </div>
+              <div class="col-2 text-center border-stats-performance-box p-5">
+              	<i class="far fa-user fa-3x"></i>
+              	<div><strong>2500</strong><br>Active User</div>
+              </div>
+               <div class="col-2 text-center border-stats-performance-box p-5">
+               <i class="fas fa-book fa-3x"></i>
+               	<div><strong>2500</strong><br>Users Completed Courses</div>
+               </div>
+                <div class="col-2 text-center border-stats-performance-box p-5">
+                	<i class="far fa-check-circle fa-3x"></i>	
+                	<div><strong>70%</strong><br>Average Program Completion</div>
+                </div>
+                 <div class="col-2 text-center border-stats-performance-box p-5">
+                 	<i class="far fa-compass fa-3x"></i>
+                   <div><strong>70%</strong><br>Learning Achievement</div>
+                 </div>
+          	 <div class="col-1"></div>	
+             
+         </div>
+      </div>
+   </div>
+</div>

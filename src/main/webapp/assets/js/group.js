@@ -10,7 +10,7 @@ groupCardClick();
 
 
 function groupCardClick(){
-	$('.group-card-cursor').unbind().click(function (e){
+	$('.group-card-click').unbind().click(function (e){
 		e.stopPropagation();	
 		var group_id=$(this).data('groupid');
 		log(group_id);

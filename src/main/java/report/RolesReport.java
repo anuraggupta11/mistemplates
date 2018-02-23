@@ -49,7 +49,7 @@ public class RolesReport {
 	        ve.init();
 	        	
 	        /*  next, get the Template  */
-	        Template t = ve.getTemplate( "templates/report/roles_report.vm" );
+	        Template t = ve.getTemplate( "templates/report/individual_roles_report.vm" );
 	       
 	        /*  create a context and add data */
 	        // http://192.168.1.13:8080/istar/rest/course/3/course_stats_performance/1

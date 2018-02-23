@@ -2,6 +2,8 @@
 <script src="assets/js/tether.min.js"></script>
 <script src="assets/js/fontawesome.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 <script src="assets/js/jquery.readmore-readless.js"></script>
 <script src="assets/js/slick.js"></script>
 <script src="assets/js/jquery.rateyo.min.js"></script>
