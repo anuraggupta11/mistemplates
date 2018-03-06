@@ -2,29 +2,177 @@
    <div class="card w-100 roles-report-card-shadow">
       <div class="card-block ">
          <div class="row">
-            <div class="col-1">
+            <div class="col-md-1">
             </div>
-             <div class="col-2 text-center border-stats-performance-box p-5" >
+             <div class="col-md-2 text-center border-stats-performance-box p-4" >
              	<i class="fas fa-users fa-3x"></i>
-             	<div><strong>951</strong><br>Target User</div>
+             	<div><strong>$data.get('data').get('targeted_users')</strong><br>Target User</div>
              </div>
-              <div class="col-2 text-center border-stats-performance-box p-5">
+              <div class="col-md-2 text-center border-stats-performance-box p-4">
               	<i class="far fa-user fa-3x"></i>
-              	<div><strong>2500</strong><br>Active User</div>
+              	<div><strong>$data.get('data').get('active_user')</strong><br>Active User</div>
               </div>
-               <div class="col-2 text-center border-stats-performance-box p-5">
+               <div class="col-md-2 text-center border-stats-performance-box p-4">
                <i class="fas fa-book fa-3x"></i>
-               	<div><strong>2500</strong><br>Users Completed Courses</div>
+               	<div><strong>$data.get('data').get('user_completed_course')</strong><br>Users Completed Courses</div>
                </div>
-                <div class="col-2 text-center border-stats-performance-box p-5">
+                <div class="col-md-2 text-center border-stats-performance-box p-4">
                 	<i class="far fa-check-circle fa-3x"></i>	
-                	<div><strong>70%</strong><br>Average Program Completion</div>
+                	<div><strong>$data.get('data').get('avg_program_competition')%</strong><br>Average Program Completion</div>
                 </div>
-                 <div class="col-2 text-center border-stats-performance-box p-5">
+                 <div class="col-md-2 text-center border-stats-performance-box p-4">
                  	<i class="far fa-compass fa-3x"></i>
-                   <div><strong>70%</strong><br>Learning Achievement</div>
+                   <div><strong>$data.get('data').get('avg_learning_achivements')%</strong><br>Learning Achievement</div>
                  </div>
           	 <div class="col-1"></div>	
+             
+         </div>
+         <div class="row m-4">
+         	<div class="col-2">
+         	</div>
+         	<div class="col-8">
+         	<div class="row">
+         		<div class="col-3">
+         			<div class="row">
+         				<div class="col-4">
+         				<span><strong>46</strong><br>wizard</span>
+         				</div>
+         				<div class="col-2">
+         				#if($data.get('data').get('wizard_lastweek_increment') > 0)
+         				<i class="fas fa-long-arrow-alt-up"></i>
+         				#else
+         				<i class="fas fa-long-arrow-alt-down"></i>
+         				#end
+         				</div>
+         				<div class="col-6">
+         					<div class="font-12">$data.get('data').get('wizard_lastweek_increment')%<p>Last Week</p></div>
+         					
+         				</div>
+         			</div>
+         			 
+         			 
+         		</div>
+         		<div class="col-3">
+         			<div class="row">
+         				<div class="col-4">
+         				<span><strong>46</strong><br>Master</span>
+         				</div>
+         				<div class="col-2">
+         				#if($data.get('data').get('master_lastweek_increment') > 0)
+         				<i class="fas fa-long-arrow-alt-up"></i>
+         				#else
+         				<i class="fas fa-long-arrow-alt-down"></i>
+         				#end
+         				</div>
+         				<div class="col-6">
+         					<div class="font-12">45%<p>Last Week</p></div>
+         					
+         				</div>
+         			</div>
+         		</div>
+         		<div class="col-3">
+         			<div class="row">
+         				<div class="col-4">
+         				<span><strong>46</strong><br>Apprentice</span>
+         				</div>
+         				<div class="col-2">
+         				#if($data.get('data').get('apprentice_lastweek_increment') > 0)
+         				<i class="fas fa-long-arrow-alt-up"></i>
+         				#else
+         				<i class="fas fa-long-arrow-alt-down"></i>
+         				#end
+         				</div>
+         				<div class="col-6">
+         					<div class="font-12">45%<p>Last Week</p></div>
+         					
+         				</div>
+         			</div>
+         		</div>
+         		<div class="col-3">
+         		<div class="row">
+         				<div class="col-4">
+         				<span><strong>46</strong><br>Rookie</span>
+         				</div>
+         				<div class="col-2">
+         				#if($data.get('data').get('rookie_lastweek_increment') > 0)
+         				<i class="fas fa-long-arrow-alt-up"></i>
+         				#else
+         				<i class="fas fa-long-arrow-alt-down"></i>
+         				#end
+         				</div>
+         				<div class="col-6">
+         					<div class="font-12">45%<p>Last Week</p></div>
+         					
+         				</div>
+         			</div>
+         		</div>
+         	</div>
+         </div>
+         	<div class="col-2">
+         	</div> 
+         
+         </div>
+      </div>
+   </div>
+</div>
+
+<div class="row mb-4">
+   <div class="card w-100 roles-report-card-shadow">
+      <div class="card-block ">
+      <div class="ml-3">MASTERY LEVEL PER SKILL</div>
+      	<div class="row">
+      	<div class="col-sm-6 col-md-5 d-flex pl-5">
+      		<div class="col-md-6 col-sm-12 p-0">
+      		<div class="row">
+      		<div class="col-md-6 p-0"> 
+      			<i class="fas fa-square"></i>
+      			Wizard
+      		</div>
+      		<div class="col-md-6 p-0"> 
+      			<i class="fas fa-square"></i>
+      			Master
+      		</div>
+      		</div>
+      		</div>
+      		<div class="col-md-6 col-sm-12 p-0">
+      		<div class="row">
+      		<div class="col-md-6 p-0"> 
+      		 <i class="fas fa-square"></i>
+      		 Apprentice
+      		</div>
+      		<div class="col-md-6 p-0"> 
+      		<i class="fas fa-square"></i>
+      		Rookie
+      		</div>
+      		</div>
+      		</div>
+      	</div>
+      	<div class="col-sm-6 col-md-7 p-0">
+      			<div class="row">
+      				<div class="col-md-8 col-sm-1">
+      				</div>
+      				<div class="col-md-4 col-sm-11 text-center">
+      					<div class="dropdown show">
+  <a class="btn btn-secondary dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown link
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+      				</div>
+      			</div>
+      	</div>
+      		
+      		
+      	</div>
+      </div>
+         <div class="row">
+            
+
              
          </div>
       </div>

@@ -36,7 +36,7 @@ public class Group {
 	       
 	        /*  create a context and add data */
 	        HttpUtils httpUtils = new HttpUtils();
-	        String responseData = httpUtils.makeHttpCall("http://192.168.1.13:8080/istar/rest/group/all/3", "GET");
+	        String responseData = httpUtils.makeHttpCall("http://192.168.1.17:8080/istar/rest/group/all/3", "GET");
 	       JSONObject json =  new JSONObject(responseData);
 	        
 	        System.err.println();
