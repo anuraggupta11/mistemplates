@@ -30,6 +30,18 @@
 .theme-text{
 	color: #eb384f  !important;
 }
+.wizard-color{
+	color:#fd6c81;
+}
+.master-color{
+	color:#7692ff;
+}
+.apprentice-color{
+	color:#35bdf0;
+}
+.rookie-color{
+	color:#b8e986;
+}
 /* end of custom text color*/
 
 

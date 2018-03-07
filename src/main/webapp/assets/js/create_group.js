@@ -282,7 +282,6 @@ function createGroupSubmit(){
 	});
 	
 }
-
 function log(message){
 	console.log(message);
 }

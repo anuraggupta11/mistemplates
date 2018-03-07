@@ -5,37 +5,37 @@
             <div class="col-md-1">
             </div>
              <div class="col-md-2 text-center border-stats-performance-box p-4" >
-             	<i class="fas fa-users fa-3x"></i>
+             	<i class="fas fa-users fa-3x sky-blue-color"></i>
              	<div><strong>$data.get('data').get('targeted_users')</strong><br>Target User</div>
              </div>
               <div class="col-md-2 text-center border-stats-performance-box p-4">
-              	<i class="far fa-user fa-3x"></i>
+              	<i class="far fa-user fa-3x sky-blue-color"></i>
               	<div><strong>$data.get('data').get('active_user')</strong><br>Active User</div>
               </div>
                <div class="col-md-2 text-center border-stats-performance-box p-4">
-               <i class="fas fa-book fa-3x"></i>
+               <i class="fas fa-book fa-3x sky-blue-color"></i>
                	<div><strong>$data.get('data').get('user_completed_course')</strong><br>Users Completed Courses</div>
                </div>
                 <div class="col-md-2 text-center border-stats-performance-box p-4">
-                	<i class="far fa-check-circle fa-3x"></i>	
+                	<i class="far fa-check-circle fa-3x sky-blue-color"></i>	
                 	<div><strong>$data.get('data').get('avg_program_competition')%</strong><br>Average Program Completion</div>
                 </div>
                  <div class="col-md-2 text-center border-stats-performance-box p-4">
-                 	<i class="far fa-compass fa-3x"></i>
+                 	<i class="far fa-compass fa-3x sky-blue-color"></i>
                    <div><strong>$data.get('data').get('avg_learning_achivements')%</strong><br>Learning Achievement</div>
                  </div>
           	 <div class="col-1"></div>	
              
          </div>
          <div class="row m-4">
-         	<div class="col-2">
+         	<div class="col-md-2">
          	</div>
-         	<div class="col-8">
+         	<div class="col-md-8">
          	<div class="row">
          		<div class="col-3">
          			<div class="row">
          				<div class="col-4">
-         				<span><strong>46</strong><br>wizard</span>
+         				<span><strong>46</strong><br><div class="wizard-color">wizard</div></span>
          				</div>
          				<div class="col-2">
          				#if($data.get('data').get('wizard_lastweek_increment') > 0)
@@ -49,13 +49,13 @@
          					
          				</div>
          			</div>
-         			 
+         			 	
          			 
          		</div>
          		<div class="col-3">
          			<div class="row">
          				<div class="col-4">
-         				<span><strong>46</strong><br>Master</span>
+         				<span><strong>46</strong><br><div class="master-color">Master</div></span>
          				</div>
          				<div class="col-2">
          				#if($data.get('data').get('master_lastweek_increment') > 0)
@@ -73,7 +73,7 @@
          		<div class="col-3">
          			<div class="row">
          				<div class="col-4">
-         				<span><strong>46</strong><br>Apprentice</span>
+         				<span><strong>46</strong><br><div class="apprentice-color">Apprentice</div></span>
          				</div>
          				<div class="col-2">
          				#if($data.get('data').get('apprentice_lastweek_increment') > 0)
@@ -91,7 +91,7 @@
          		<div class="col-3">
          		<div class="row">
          				<div class="col-4">
-         				<span><strong>46</strong><br>Rookie</span>
+         				<span><strong>46</strong><br><div class="rookie-color">Rookie</div></span>
          				</div>
          				<div class="col-2">
          				#if($data.get('data').get('rookie_lastweek_increment') > 0)
@@ -108,7 +108,7 @@
          		</div>
          	</div>
          </div>
-         	<div class="col-2">
+         	<div class="col-md-2">
          	</div> 
          
          </div>
@@ -122,58 +122,68 @@
       <div class="ml-3">MASTERY LEVEL PER SKILL</div>
       	<div class="row">
       	<div class="col-sm-6 col-md-5 d-flex pl-5">
-      		<div class="col-md-6 col-sm-12 p-0">
-      		<div class="row">
-      		<div class="col-md-6 p-0"> 
-      			<i class="fas fa-square"></i>
-      			Wizard
-      		</div>
-      		<div class="col-md-6 p-0"> 
-      			<i class="fas fa-square"></i>
-      			Master
-      		</div>
-      		</div>
-      		</div>
-      		<div class="col-md-6 col-sm-12 p-0">
-      		<div class="row">
-      		<div class="col-md-6 p-0"> 
-      		 <i class="fas fa-square"></i>
-      		 Apprentice
-      		</div>
-      		<div class="col-md-6 p-0"> 
-      		<i class="fas fa-square"></i>
-      		Rookie
-      		</div>
-      		</div>
-      		</div>
+      			<div class="col-md-6 col-sm-12 p-0">
+		      		<div class="row">
+			      		<div class="col-md-6 p-0"> 
+			      			<i class="fas fa-square wizard-color"></i>
+			      			Wizard
+			      		</div>
+			      		<div class="col-md-6 p-0"> 
+			      			<i class="fas fa-square master-color"></i>
+			      			Master
+			      		</div>
+		      		</div>
+      			</div>
+      			<div class="col-md-6 col-sm-12 p-0">
+      				<div class="row">
+      					<div class="col-md-6 p-0"> 
+      		 				<i class="fas fa-square apprentice-color"></i>
+      		 				Apprentice
+      					</div>
+      					<div class="col-md-6 p-0"> 
+      						<i class="fas fa-square rookie-color"></i>
+      						Rookie
+      					</div>
+      				</div>
+      			</div>
       	</div>
       	<div class="col-sm-6 col-md-7 p-0">
       			<div class="row">
       				<div class="col-md-8 col-sm-1">
       				</div>
-      				<div class="col-md-4 col-sm-11 text-center">
-      					<div class="dropdown show">
-  <a class="btn btn-secondary dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown link
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div>
-</div>
-      				</div>
+      				<div class="col-md-4 col-sm-11 text-center pl-4 pr-5">
+      						 <select id="groupType" class="form-control" required>
+	 						#foreach($group in $group_dropdown.get('data'))
+							<option value="$group.get('id')">$group.get('name')</option>
+							#end
+	              	</select>
+					</div>
       			</div>
       	</div>
       		
       		
       	</div>
       </div>
-         <div class="row">
+         <div class="row ml-3 mr-3">
             
-
-             
+					 <ul class="list-group ml-3 mr-3 w-100">
+						 #foreach($group in $mastery_level_per_skill.get('data'))
+						 	#foreach($module in $group.get('module'))
+						    	<li class="list-group-item m-1"><i class="fas fa-plus-circle mr-3" data-toggle="collapse" href="#$module.get()" aria-expanded="false" aria-controls="collapseExample"></i>
+						    	$module.get('name')<br>
+						    	<div class="collapse" id="collapseExample">
+						    	<ul>
+						    	#foreach($cmsession in $module.get('Cmsession'))
+								  <li>
+								    $cmsession.get('cmsession_name')
+								  </li>
+								  #end
+								 </ul>
+								</div>
+						    	</li>
+						    #end
+						  #end
+					 </ul>	
          </div>
       </div>
    </div>
