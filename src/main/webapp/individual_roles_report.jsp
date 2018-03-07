@@ -25,12 +25,14 @@
 		
 		 
 	
-		<%Integer courseId=null;
+			<%Integer courseId=null;
 			if(request.getParameter("course_id") != null){
 				courseId=Integer.parseInt(request.getParameter("course_id")) ;
 			}%>
 		
 		<%= new RolesReport().getRoleReportDetail(courseId) %>
+ 
+	
 		
 	</div>
 

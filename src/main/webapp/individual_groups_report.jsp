@@ -23,6 +23,7 @@
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 	<div class="jumbotron white-bg mt-3">
 		
+		 <div class="container">
 		 
 	
 		<%Integer groupId=null;
@@ -31,7 +32,7 @@
 			}%>
 		
 		<%= new GroupsReport().getGroupReportDetail(groupId) %>
-		
+		</div>
 	</div>
 
 
