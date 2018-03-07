@@ -1,3 +1,9 @@
+	<div class="container">
+		<div class="d-flex flex-row mt-2">
+		   <div class="pb-2 pt-2 custom-cursor"><img src="assets/img/group_back_arrow.png"></div>
+		   <div class="p-2 role-title">	$mastery_level_per_skill.get('data')[0].get('group_name')</div>
+		</div>
+
 <div class="row mb-4">
    <div class="card w-100 roles-report-card-shadow">
       <div class="card-block ">
@@ -239,18 +245,18 @@
 		  		 		      <div class="card w-100 roles-report-card-shadow">
 		      				        <div class="card-block ">
 							       				 <div class="row ml-3 mr-3">
-									         		<div class="col-2">
+									         		<div class="col-md-2">
 									         			 STUDENT ENROLLED 
 									         		</div>
-									         		<div class="col-5">
+									         		<div class="col-md-5">
 									         		</div>
-									         		<div class="col-3">
+									         		<div class="col-md-3">
 									         			<div class="input-group student-enrolled">
 													 	 <input type="text" class="form-control border-right-0 " placeholder="Search" aria-describedby="basic-addon2">
 													 	 <span class="input-group-addon white-bg" id="basic-addon2"><i class="fas fa-search"></i></span>
 														</div>
 									         		</div>
-									         		<div class="col-2">
+									         		<div class="col-md-2">
 									         		 		<select id="groupType" class="form-control" required>
 										         		 		<option value="">All Levels</option>
 																<option value="wizard">WIZARD</option>
@@ -264,16 +270,16 @@
 							        			  	  <div class="card  rounded-0 mt-4 ml-5 mr-5 w-100">
 															  <div class="card-block">
 															     <div class="row text-center font-15 font-weight-bold">
-															     	<div class="col-3">
+															     	<div class="col-md-3">
 															     		STUDENT NAME
 															     	</div>
-															     	<div class="col-3">
+															     	<div class="col-md-3">
 															     		RANK
 															     	</div>
-															     	<div class="col-3">
+															     	<div class="col-md-3">
 															     		XP
 															     	</div>
-															     	<div class="col-3">
+															     	<div class="col-md-3">
 															     		LEVEL
 															     	</div>
 															     </div>
@@ -286,23 +292,16 @@
 						        			  	     		<div class="card  rounded-0 border-top-0 ml-5 mr-5 w-100">
 														 	 <div class="card-block">
 														    	 <div class="row text-center font-15 font-weight-bold">
-															     	<div class="col-3 ">
-															     		<div class="row">
-																     		<div class="col-4">
-																     			<img src="$student.get('image_url')"  alt="No image">
-																     		</div>
-																     		<div class="col-8">
+															     	<div class="col-md-3 ">
 																     			$student.get('name')
-																     		</div>
-															     		</div>
 															     	</div>
-															     	<div class="col-3">
+															     	<div class="col-md-3">
 															     		$student.get('ranking')
 															     	</div>
-															     	<div class="col-3">
+															     	<div class="col-md-3">
 															     		$student.get('xp')
 															     	</div>
-															     	<div class="col-3">
+															     	<div class="col-md-3">
 															     		$student.get('level')
 															     	</div>
 														    	 </div>
@@ -314,4 +313,6 @@
 		    	 		            
 		  		                </div>
 		            </div>
+</div>
+
 </div>

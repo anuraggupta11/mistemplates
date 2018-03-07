@@ -34,11 +34,11 @@ public class GroupUserList {
 	       
 	        /*  create a context and add data */
 	        HttpUtils httpUtils = new HttpUtils();
-	        String responseData = httpUtils.makeHttpCall("http://192.168.1.13:8080/istar/rest/group/details/"+id, "GET");
+	        String responseData = httpUtils.makeHttpCall("http://127.0.0.1:8080/istar/rest/group/details/"+id, "GET");
 	       JSONObject json =  new JSONObject(responseData);
 	        
 	        System.err.println();
-	        String responseDataCreateUser = httpUtils.makeHttpCall("http://192.168.1.13:8080/istar/rest/user/create/3", "GET");
+	        String responseDataCreateUser = httpUtils.makeHttpCall("http://127.0.0.1:8080/istar/rest/user/create/3", "GET");
 	        JSONObject jsonDataForCreateUser =  new JSONObject(responseDataCreateUser);
 
 	        VelocityContext context = new VelocityContext();

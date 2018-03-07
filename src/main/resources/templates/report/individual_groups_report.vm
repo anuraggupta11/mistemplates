@@ -1,0 +1,119 @@
+
+
+<div class="row mb-4">
+   <div class="card w-100 roles-report-card-shadow">
+      <div class="card-block ">
+         <div class="row">
+            <div class="col-md-1">
+            </div>
+             <div class="col-md-2 text-center border-stats-performance-box p-4" >
+             	<i class="fas fa-users fa-3x sky-blue-color"></i>
+             	<div><strong>$data.get('data').get('target_user')</strong><br>Target User</div>
+             </div>
+              <div class="col-md-2 text-center border-stats-performance-box p-4">
+              	<i class="far fa-user fa-3x sky-blue-color"></i>
+              	<div><strong>$data.get('data').get('active_user')</strong><br>Active User</div>
+              </div>
+               <div class="col-md-2 text-center border-stats-performance-box p-4">
+               <i class="fas fa-book fa-3x sky-blue-color"></i>
+               	<div><strong>$data.get('data').get('user_completed_Course')</strong><br>Users Completed Courses</div>
+               </div>
+                <div class="col-md-2 text-center border-stats-performance-box p-4">
+                	<i class="far fa-check-circle fa-3x sky-blue-color"></i>	
+                	<div><strong>$data.get('data').get('average_program_completion')%</strong><br>Average Program Completion</div>
+                </div>
+                 <div class="col-md-2 text-center border-stats-performance-box p-4">
+                 	<i class="far fa-compass fa-3x sky-blue-color"></i>
+                   <div><strong>$data.get('data').get('learning_achivement')%</strong><br>Learning Achievement</div>
+                 </div>
+          	 <div class="col-1"></div>	
+             
+         </div>
+         <div class="row m-4">
+         	<div class="col-md-2">
+         	</div>
+         	<div class="col-md-8">
+         	<div class="row">
+         		<div class="col-3">
+         			<div class="row">
+         				<div class="col-4">
+         				<span><strong>$data.get('data').get('wizard')</strong><br><div class="wizard-color">wizard</div></span>
+         				</div>
+         				<div class="col-2">
+         				#if($data.get('data').get('wizard_last_week_increment') > 0)
+         				<i class="fas fa-long-arrow-alt-up"></i>
+         				#else
+         				<i class="fas fa-long-arrow-alt-down"></i>
+         				#end
+         				</div>
+         				<div class="col-6">
+         					<div class="font-12">$data.get('data').get('wizard_last_week_increment')%<p>Last Week</p></div>
+         					
+         				</div>
+         			</div>
+         			 	
+         			 
+         		</div>
+         		<div class="col-3">
+         			<div class="row">
+         				<div class="col-4">
+         				<span><strong>$data.get('data').get('master')</strong><br><div class="master-color">Master</div></span>
+         				</div>
+         				<div class="col-2">
+         				#if($data.get('data').get('master_last_week_increment') > 0)
+         				<i class="fas fa-long-arrow-alt-up"></i>
+         				#else
+         				<i class="fas fa-long-arrow-alt-down"></i>
+         				#end
+         				</div>
+         				<div class="col-6">
+         					<div class="font-12">$data.get('data').get('master_last_week_increment')%<p>Last Week</p></div>
+         					
+         				</div>
+         			</div>
+         		</div>
+         		<div class="col-3">
+         			<div class="row">
+         				<div class="col-4">
+         				<span><strong>$data.get('data').get('apprentice')</strong><br><div class="apprentice-color">Apprentice</div></span>
+         				</div>
+         				<div class="col-2">
+         				#if($data.get('data').get('apprentice_last_week_increment') > 0)
+         				<i class="fas fa-long-arrow-alt-up"></i>
+         				#else
+         				<i class="fas fa-long-arrow-alt-down"></i>
+         				#end
+         				</div>
+         				<div class="col-6">
+         					<div class="font-12">$data.get('data').get('apprentice_last_week_increment')%<p>Last Week</p></div>
+         					
+         				</div>
+         			</div>
+         		</div>
+         		<div class="col-3">
+         		<div class="row">
+         				<div class="col-4">
+         				<span><strong>$data.get('data').get('rookie')</strong><br><div class="rookie-color">Rookie</div></span>
+         				</div>
+         				<div class="col-2">
+         				#if($data.get('data').get('rookie_last_week_increment') > 0)
+         				<i class="fas fa-long-arrow-alt-up"></i>
+         				#else
+         				<i class="fas fa-long-arrow-alt-down"></i>
+         				#end
+         				</div>
+         				<div class="col-6">
+         					<div class="font-12">$data.get('data').get('rookie_last_week_increment')%<p>Last Week</p></div>
+         					
+         				</div>
+         			</div>
+         		</div>
+         	</div>
+         </div>
+         	<div class="col-md-2">
+         	</div> 
+         
+         </div>
+      </div>
+   </div>
+</div>

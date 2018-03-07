@@ -60,6 +60,13 @@ $(document).ready(function(){
 		    // instead of a settings object
 		  ]
 		});
+	  
+	  
+	  $('.group-report-cards-header').unbind().click(function(e){
+		  e.stopPropagation();
+		  var group_id=$(this).data('groupid');
+			location.href="individual_groups_report.jsp?group_id="+group_id;
+	  })
 	
 })
 	  

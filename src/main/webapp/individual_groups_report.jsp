@@ -25,12 +25,12 @@
 		
 		 
 	
-		<%Integer courseId=null;
-			if(request.getParameter("course_id") != null){
-				courseId=Integer.parseInt(request.getParameter("course_id")) ;
+		<%Integer groupId=null;
+			if(request.getParameter("group_id") != null){
+				groupId=Integer.parseInt(request.getParameter("group_id")) ;
 			}%>
 		
-		<%= new RolesReport().getRoleReportDetail(courseId) %>
+		<%= new GroupsReport().getGroupReportDetail(groupId) %>
 		
 	</div>
 

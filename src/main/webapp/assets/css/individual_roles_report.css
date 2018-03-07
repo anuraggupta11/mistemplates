@@ -9,3 +9,8 @@
     border-color: #d9d9d9;
     outline: none;
 }
+.role-title{
+	    font-size: 1.6rem;
+    font-family: avenir-light;
+    font-weight: bold;
+}

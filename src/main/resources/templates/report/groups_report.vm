@@ -8,7 +8,7 @@
 <div class="row mb-4">
    <div class="card w-100 roles-report-card-shadow">
       <div class="card-block">
-         <div class="d-flex flex-column">
+         <div class="d-flex flex-column custom-cursor group-report-cards-header " data-groupid="$group_card.get('id')">
                <h4>$group_card.get('group_name')</h4>
         
                <div class="rating-groups-report p-0 mt-1" data-groupfeedback="$group_card.get('group_feedback')"></div>
