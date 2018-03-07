@@ -35,7 +35,7 @@
          		<div class="col-3">
          			<div class="row">
          				<div class="col-4">
-         				<span><strong>46</strong><br><div class="wizard-color">wizard</div></span>
+         				<span><strong>$data.get('data').get('wizard_count')</strong><br><div class="wizard-color">wizard</div></span>
          				</div>
          				<div class="col-2">
          				#if($data.get('data').get('wizard_lastweek_increment') > 0)
@@ -55,7 +55,7 @@
          		<div class="col-3">
          			<div class="row">
          				<div class="col-4">
-         				<span><strong>46</strong><br><div class="master-color">Master</div></span>
+         				<span><strong>$data.get('data').get('master_count')</strong><br><div class="master-color">Master</div></span>
          				</div>
          				<div class="col-2">
          				#if($data.get('data').get('master_lastweek_increment') > 0)
@@ -65,7 +65,7 @@
          				#end
          				</div>
          				<div class="col-6">
-         					<div class="font-12">45%<p>Last Week</p></div>
+         					<div class="font-12">$data.get('data').get('master_lastweek_increment')%<p>Last Week</p></div>
          					
          				</div>
          			</div>
@@ -73,7 +73,7 @@
          		<div class="col-3">
          			<div class="row">
          				<div class="col-4">
-         				<span><strong>46</strong><br><div class="apprentice-color">Apprentice</div></span>
+         				<span><strong>$data.get('data').get('apprentice_count')</strong><br><div class="apprentice-color">Apprentice</div></span>
          				</div>
          				<div class="col-2">
          				#if($data.get('data').get('apprentice_lastweek_increment') > 0)
@@ -83,7 +83,7 @@
          				#end
          				</div>
          				<div class="col-6">
-         					<div class="font-12">45%<p>Last Week</p></div>
+         					<div class="font-12">$data.get('data').get('apprentice_lastweek_increment')%<p>Last Week</p></div>
          					
          				</div>
          			</div>
@@ -91,7 +91,7 @@
          		<div class="col-3">
          		<div class="row">
          				<div class="col-4">
-         				<span><strong>46</strong><br><div class="rookie-color">Rookie</div></span>
+         				<span><strong>$data.get('data').get('rookie_count')</strong><br><div class="rookie-color">Rookie</div></span>
          				</div>
          				<div class="col-2">
          				#if($data.get('data').get('rookie_lastweek_increment') > 0)
@@ -101,7 +101,7 @@
          				#end
          				</div>
          				<div class="col-6">
-         					<div class="font-12">45%<p>Last Week</p></div>
+         					<div class="font-12">$data.get('data').get('rookie_lastweek_increment')%<p>Last Week</p></div>
          					
          				</div>
          			</div>
