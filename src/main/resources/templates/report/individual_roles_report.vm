@@ -156,35 +156,162 @@
 	 						#foreach($group in $group_dropdown.get('data'))
 							<option value="$group.get('id')">$group.get('name')</option>
 							#end
-	              	</select>
+	              			</select>
 					</div>
       			</div>
       	</div>
-      		
-      		
       	</div>
       </div>
          <div class="row ml-3 mr-3">
-            
-					 <ul class="list-group ml-3 mr-3 w-100">
+					 <ul class="  ml-3 mr-3 w-100">
 						 #foreach($group in $mastery_level_per_skill.get('data'))
 						 	#foreach($module in $group.get('module'))
-						    	<li class="list-group-item m-1"><i class="fas fa-plus-circle mr-3" data-toggle="collapse" href="#$module.get()" aria-expanded="false" aria-controls="collapseExample"></i>
-						    	$module.get('name')<br>
-						    	<div class="collapse" id="collapseExample">
-						    	<ul>
+						    		<li class=" m-1 " style="list-style-type:none">
+						    			<div class="card rounded-0">
+  											<div class="card-block">
+								    			 <div class="row">
+									    			<div class="col-md-1">
+									    				<i class="fas fa-plus-circle mr-3 module-click-expand  custom-cursor" href="#module_$module.get('id')" data-toggle="collapse"></i>
+									    			</div>
+									    			<div class="col-md-3">
+									    				<div class="font-18 font-weight-bold">$module.get('name')</div>
+									    				<div class="wizard-color">Average $module.get('avg_skill')%</div> 
+									    				
+									    			</div>
+									    			<div class="col-md-8">
+									    				<div class="progress rounded-0 font-14 font-weight-bold white">
+														  <div class="wizard-bg-color pt-2 pb-2" role="progressbar" style="width: $module.get('wizard_in_module')%; height: 30px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"> $module.get('wizard_in_module')%</div>
+														  <div class="master-bg-color pt-2 pb-2" role="progressbar" style="width: $module.get('master_in_module')%; height: 30px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">$module.get('master_in_module')%</div>
+														  <div class="apprentice-bg-color pt-2 pb-2" role="progressbar" style="width: $module.get('apprentice_in_module')%; height: 30px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">$module.get('apprentice_in_module')%</div>
+														  <div class="rookie-bg-color pt-2 pb-2" role="progressbar" style="width:  $module.get('rookie_in_module')%; height: 30px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"> $module.get('rookie_in_module')%</div>
+														</div>
+									    			</div>
+								    			 </div>
+								    		</div>
+								    	</div>
+						    		</li>
+						    	<div class="collapse" id="module_$module.get('id')">
+						    	<ul class="p-1" >
 						    	#foreach($cmsession in $module.get('Cmsession'))
-								  <li>
-								    $cmsession.get('cmsession_name')
+								  <li class="" style="list-style-type:none">
+									  <div class="card rounded-0">
+  											<div class="card-block">
+								    			 <div class="row">
+									    			<div class="col-md-1">
+									    				 
+									    			</div>
+									    			<div class="col-md-3">
+									    				$cmsession.get('cmsession_name')
+									    			</div>
+									    			<div class="col-md-8">
+									    				 <div class="row">
+									    				 	<div class="col-3 wizard-color">
+									    				 		$cmsession.get('wizard')%
+									    				 	</div>
+									    				 	<div class="col-3 master-color">
+									    				 		$cmsession.get('master')%
+									    				 	</div>
+									    				 	<div class="col-3 apprentice-color">
+									    				 		$cmsession.get('apprentice')%
+									    				 	</div>
+									    				 	<div class="col-3 rookie-color">
+									    				 		$cmsession.get('rookie')%
+									    				 	</div>
+									    				 </div>
+									    			</div>
+								    			 </div>
+								    		</div>
+								    	</div>
 								  </li>
 								  #end
-								 </ul>
-								</div>
-						    	</li>
+								  </ul>
+								  </div>
 						    #end
 						  #end
 					 </ul>	
          </div>
       </div>
    </div>
+
+
+ 
+	         	<div class="row mb-4">
+		  		 		      <div class="card w-100 roles-report-card-shadow">
+		      				        <div class="card-block ">
+							       				 <div class="row ml-3 mr-3">
+									         		<div class="col-2">
+									         			 STUDENT ENROLLED 
+									         		</div>
+									         		<div class="col-5">
+									         		</div>
+									         		<div class="col-3">
+									         			<div class="input-group student-enrolled">
+													 	 <input type="text" class="form-control border-right-0 " placeholder="Search" aria-describedby="basic-addon2">
+													 	 <span class="input-group-addon white-bg" id="basic-addon2"><i class="fas fa-search"></i></span>
+														</div>
+									         		</div>
+									         		<div class="col-2">
+									         		 		<select id="groupType" class="form-control" required>
+										         		 		<option value="">All Levels</option>
+																<option value="wizard">WIZARD</option>
+																<option value="master">MASTER</option>
+																<option value="apprentice">APPRENTICE</option>
+																<option value="rookie">ROOKIE</option>
+									              			</select>
+									         		</div>
+							        			  </div>
+							        			  <div class="row">
+							        			  	  <div class="card  rounded-0 mt-4 ml-5 mr-5 w-100">
+															  <div class="card-block">
+															     <div class="row text-center font-15 font-weight-bold">
+															     	<div class="col-3">
+															     		STUDENT NAME
+															     	</div>
+															     	<div class="col-3">
+															     		RANK
+															     	</div>
+															     	<div class="col-3">
+															     		XP
+															     	</div>
+															     	<div class="col-3">
+															     		LEVEL
+															     	</div>
+															     </div>
+															  </div>
+															</div>
+															
+							        			  </div>
+							        			  #foreach($student in $student_enrolled.get('data'))
+						        			            <div class="row">
+						        			  	     		<div class="card  rounded-0 border-top-0 ml-5 mr-5 w-100">
+														 	 <div class="card-block">
+														    	 <div class="row text-center font-15 font-weight-bold">
+															     	<div class="col-3 ">
+															     		<div class="row">
+																     		<div class="col-4">
+																     			<img src="$student.get('image_url')"  alt="No image">
+																     		</div>
+																     		<div class="col-8">
+																     			$student.get('name')
+																     		</div>
+															     		</div>
+															     	</div>
+															     	<div class="col-3">
+															     		$student.get('ranking')
+															     	</div>
+															     	<div class="col-3">
+															     		$student.get('xp')
+															     	</div>
+															     	<div class="col-3">
+															     		$student.get('level')
+															     	</div>
+														    	 </div>
+															  </div>
+												 			</div>
+						        			 	 	    </div>
+							        			 #end
+		    	 		             </div>	
+		    	 		            
+		  		                </div>
+		            </div>
 </div>

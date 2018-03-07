@@ -22,7 +22,7 @@ function scanButtonClick(){
 			
 			$.ajax({
 			    type: 'POST',
-			    url: 'http://192.168.1.13:8080/istar/rest/group/skills/3',
+			    url: 'http://127.0.0.1:8080/istar/rest/group/skills/3',
 			    data:skill_object,
 			    success: function(res){
 			    	
@@ -121,7 +121,7 @@ function ajaxifySearchInput(){
 		$('.dropdown-toggle').dropdown()
 		var search_skill_val=$(this).val();
 		if(search_skill_val != undefined && search_skill_val !=''){
-			$.get( "http://192.168.1.13:8080/istar/rest/group/skills/"+search_skill_val+"/3", function( data ) {
+			$.get( "http://127.0.0.1:8080/istar/rest/group/skills/"+search_skill_val+"/3", function( data ) {
 				$('#ajaxdropdownid').children('.dropdown-item').remove();
 				data.data.forEach(function(item){
 					if(item.name !== undefined && item.name !== ''){
@@ -255,7 +255,7 @@ function createGroupSubmit(){
 			});
 			$.ajax({
 			    type: 'POST',
-			    url: 'http://192.168.1.13:8080/istar/rest/group/create/3',
+			    url: 'http://127.0.0.1:8080/istar/rest/group/create/3',
 			    data:group_object,
 			    success: function(res){
 			       //alert("sucess");	

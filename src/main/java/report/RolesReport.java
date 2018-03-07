@@ -71,10 +71,14 @@ public class RolesReport {
 	        }
 	        String masteryLevelPerSkillObject = httpUtils.makeHttpCall("http://127.0.0.1:8080/istar/rest/course/3/skill_mastery_level/"+courseId+"/"+groupId, "GET");
 	        JSONObject jsonObjectMasterySkill=new JSONObject(masteryLevelPerSkillObject);
+	        
+	        String studentEnrolled = httpUtils.makeHttpCall(" http://127.0.0.1:8080/istar/rest/course/3/student_enrolled/"+courseId, "GET");
+	        JSONObject jsonObjecStudentEnrolled=new JSONObject(studentEnrolled);
 	       VelocityContext context = new VelocityContext();
 	       context.put("data",json );
 	       context.put("group_dropdown", objectGroupDropdown);
 	       context.put("mastery_level_per_skill", jsonObjectMasterySkill);
+	       context.put("student_enrolled", jsonObjecStudentEnrolled);
 	       
 	        /* now render the template into a StringWriter */
 	        StringWriter writer = new StringWriter();
